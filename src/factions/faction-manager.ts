@@ -377,6 +377,15 @@ export function getFactionLeaderboard(): Faction[] {
 }
 
 /**
+ * Get all debates
+ */
+export function getAllDebates(): Debate[] {
+  const db = getDatabase();
+  const stmt = db.prepare('SELECT * FROM debates ORDER BY created_at DESC');
+  return stmt.all() as Debate[];
+}
+
+/**
  * Get faction treasury in MON
  */
 export function getFactionTreasury(factionId: string): string {

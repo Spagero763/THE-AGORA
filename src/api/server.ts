@@ -50,6 +50,7 @@ import {
   createDebate,
   executeDebate,
   getFactionLeaderboard,
+  getAllDebates,
 } from '../factions/faction-manager.js';
 import { checkBalance, fundAgent, requestFromFaucet } from '../blockchain/transactions.js';
 
@@ -296,6 +297,12 @@ app.post('/api/factions/persuade', async (c) => {
 
   const result = await persuadeAgent(persuaderAgentId, targetAgentId, incentiveInMON);
   return c.json(result);
+});
+
+// Get all debates
+app.get('/api/debates', (c) => {
+  const debates = getAllDebates();
+  return c.json({ debates });
 });
 
 app.post('/api/debates', async (c) => {
