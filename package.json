@@ -8,6 +8,7 @@
     "dev": "tsx watch src/index.ts",
     "start": "tsx src/index.ts",
     "demo": "tsx src/demo.ts",
+    "demo-safe": "tsx src/scripts/demo-safe.ts",
     "autonomous": "tsx src/agents/autonomous.ts",
     "showcase": "tsx src/scripts/showcase.ts",
     "wallet": "tsx src/scripts/generate-wallet.ts",

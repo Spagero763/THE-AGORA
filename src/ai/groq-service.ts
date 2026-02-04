@@ -94,7 +94,7 @@ export async function generatePhilosophicalArgument(
   opponentArgument?: string
 ): Promise<string> {
   
-  if (!process.env.GROQ_API_KEY) {
+  if (!process.env.GROQ_API_KEY || !groqClient) {
     return `[Mock] ${agentName} argues passionately about ${topic} from the ${factionPhilosophy} perspective.`;
   }
 
@@ -106,7 +106,7 @@ ${opponentArgument ? `Opponent's argument: ${opponentArgument}` : ''}
 Make a compelling philosophical argument (2-3 sentences). Be persuasive and reference your core beliefs.`;
 
   try {
-    const completion = await groqClient!.chat.completions.create({
+    const completion = await groqClient.chat.completions.create({
       model: 'llama-3.1-8b-instant',
       messages: [{ role: 'user', content: prompt }],
       temperature: 0.8,
@@ -131,7 +131,7 @@ export async function generateGameMove(
   validMoves: string[]
 ): Promise<string> {
   
-  if (!process.env.GROQ_API_KEY) {
+  if (!process.env.GROQ_API_KEY || !groqClient) {
     return validMoves[Math.floor(Math.random() * validMoves.length)];
   }
 
@@ -143,7 +143,7 @@ Valid moves: ${validMoves.join(', ')}
 Choose your move. Respond with ONLY the move name, nothing else.`;
 
   try {
-    const completion = await groqClient!.chat.completions.create({
+    const completion = await groqClient.chat.completions.create({
       model: 'llama-3.1-8b-instant',
       messages: [{ role: 'user', content: prompt }],
       temperature: 0.5,
