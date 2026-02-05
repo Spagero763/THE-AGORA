@@ -116,6 +116,15 @@ export function getArenaById(id: string): Arena | null {
 }
 
 /**
+ * Get all arenas (any status)
+ */
+export function getAllArenas(): Arena[] {
+  const db = getDatabase();
+  const stmt = db.prepare("SELECT * FROM arenas ORDER BY created_at DESC");
+  return stmt.all() as Arena[];
+}
+
+/**
  * Get all open arenas
  */
 export function getOpenArenas(): Arena[] {
@@ -307,14 +316,35 @@ export async function executeMatch(matchId: string): Promise<Match | null> {
 
   if (!agent1 || !agent2) return null;
 
-  // Get AI decisions for both agents
-  const [move1, move2] = await Promise.all([
-    generateGameMove(agent1.name, agent1.personality, game.name, 'Make your move', game.moves),
-    generateGameMove(agent2.name, agent2.personality, game.name, 'Make your move', game.moves),
-  ]);
+  let winnerId: string | null = null;
+  let move1: string = '';
+  let move2: string = '';
+  let attempts = 0;
+  const maxAttempts = 5; // Prevent infinite loops
 
-  // Determine winner
-  const winnerId = determineWinner(gameType, move1, move2, agent1.id, agent2.id);
+  // Keep playing until we have a winner (handle ties with replays)
+  while (winnerId === null && attempts < maxAttempts) {
+    attempts++;
+    
+    // Get AI decisions for both agents
+    [move1, move2] = await Promise.all([
+      generateGameMove(agent1.name, agent1.personality, game.name, 'Make your move', game.moves),
+      generateGameMove(agent2.name, agent2.personality, game.name, 'Make your move', game.moves),
+    ]);
+
+    // Determine winner
+    winnerId = determineWinner(gameType, move1, move2, agent1.id, agent2.id);
+    
+    if (winnerId === null) {
+      console.log(`🔄 Tie! ${agent1.name} (${move1}) vs ${agent2.name} (${move2}) - Replaying...`);
+    }
+  }
+
+  // If still no winner after max attempts, pick randomly
+  if (winnerId === null) {
+    winnerId = Math.random() > 0.5 ? agent1.id : agent2.id;
+    console.log(`⚠️ Max replay attempts reached, randomly selecting winner`);
+  }
 
   // Update match
   db.prepare(`
@@ -324,24 +354,23 @@ export async function executeMatch(matchId: string): Promise<Match | null> {
   `).run(move1, move2, winnerId, Math.floor(Date.now() / 1000), matchId);
 
   // Update agent stats
-  if (winnerId) {
-    const loserId = winnerId === agent1.id ? agent2.id : agent1.id;
-    updateAgentStats(winnerId, true);
-    updateAgentStats(loserId, false);
-    
-    // Mark loser as eliminated
-    db.prepare('UPDATE arena_participants SET eliminated = 1 WHERE arena_id = ? AND agent_id = ?')
-      .run(match.arena_id, loserId);
-  }
+  const loserId = winnerId === agent1.id ? agent2.id : agent1.id;
+  updateAgentStats(winnerId, true);
+  updateAgentStats(loserId, false);
+  
+  // Mark loser as eliminated
+  db.prepare('UPDATE arena_participants SET eliminated = 1 WHERE arena_id = ? AND agent_id = ?')
+    .run(match.arena_id, loserId);
 
-  const winner = getAgentById(winnerId || agent1.id);
-  console.log(`⚔️  Match: ${agent1.name} (${move1}) vs ${agent2.name} (${move2}) → Winner: ${winner?.name || 'Draw'}`);
+  const winner = getAgentById(winnerId);
+  console.log(`⚔️  Match: ${agent1.name} (${move1}) vs ${agent2.name} (${move2}) → Winner: ${winner?.name}`);
 
   return db.prepare('SELECT * FROM matches WHERE id = ?').get(matchId) as Match;
 }
 
 /**
  * Determine match winner based on game rules
+ * Returns: winnerId, null for draw (replay needed)
  */
 function determineWinner(
   gameType: GameType,
@@ -352,7 +381,8 @@ function determineWinner(
 ): string | null {
   switch (gameType) {
     case 'rock_paper_scissors':
-      if (move1 === move2) return Math.random() > 0.5 ? agent1Id : agent2Id; // Tiebreaker
+      // Tie = null (will trigger replay)
+      if (move1 === move2) return null;
       if (
         (move1 === 'rock' && move2 === 'scissors') ||
         (move1 === 'paper' && move2 === 'rock') ||
@@ -363,18 +393,27 @@ function determineWinner(
       return agent2Id;
 
     case 'coin_flip':
-      // Higher guess wins (or random if same)
-      return Math.random() > 0.5 ? agent1Id : agent2Id;
+      // Both pick heads or tails, whoever matches the flip wins
+      const flipResult = Math.random() > 0.5 ? 'heads' : 'tails';
+      const p1Correct = move1.toLowerCase() === flipResult;
+      const p2Correct = move2.toLowerCase() === flipResult;
+      if (p1Correct && !p2Correct) return agent1Id;
+      if (p2Correct && !p1Correct) return agent2Id;
+      // Both correct or both wrong = replay
+      return null;
 
     case 'number_guess':
       // Closer to random target wins
       const target = Math.floor(Math.random() * 10) + 1;
       const diff1 = Math.abs(parseInt(move1) - target);
       const diff2 = Math.abs(parseInt(move2) - target);
-      return diff1 <= diff2 ? agent1Id : agent2Id;
+      if (diff1 < diff2) return agent1Id;
+      if (diff2 < diff1) return agent2Id;
+      // Same distance = replay
+      return null;
 
     case 'strategy':
-      if (move1 === move2) return Math.random() > 0.5 ? agent1Id : agent2Id;
+      if (move1 === move2) return null; // Tie = replay
       if (
         (move1 === 'attack' && move2 === 'defend') ||
         (move1 === 'defend' && move2 === 'counter') ||
@@ -421,8 +460,10 @@ export async function runTournamentRound(arenaId: string, payoutRealMON: boolean
       if (payoutRealMON && parseFloat(prizeAmount) > 0 && winner) {
         console.log(`💸 Paying out ${prizeAmount} MON to ${winner.name}...`);
         const result = await fundAgent(winner.wallet_address as `0x${string}`, prizeAmount);
-        if (result.success) {
+        if (result.success && result.txHash) {
           console.log(`✅ Prize paid (tx: ${result.txHash?.slice(0, 10)}...)`);
+          // Store the prize tx hash in arena for retrieval
+          db.prepare('UPDATE arenas SET prize_tx_hash = ? WHERE id = ?').run(result.txHash, arenaId);
         } else {
           console.log(`⚠️ Prize payout failed: ${result.error}`);
         }
@@ -458,7 +499,7 @@ export async function runTournamentRound(arenaId: string, payoutRealMON: boolean
 /**
  * Run entire tournament to completion
  */
-export async function runFullTournament(arenaId: string, useRealMON: boolean = false): Promise<Agent | null> {
+export async function runFullTournament(arenaId: string, useRealMON: boolean = false): Promise<{ winner: Agent | null; prizeTxHash: string | null }> {
   startTournament(arenaId);
   
   let hasMoreRounds = true;
@@ -469,10 +510,18 @@ export async function runFullTournament(arenaId: string, useRealMON: boolean = f
   }
 
   const arena = getArenaById(arenaId);
+  const db = getDatabase();
+  
+  // Get prize tx hash from arena
+  const arenaData = db.prepare('SELECT prize_tx_hash FROM arenas WHERE id = ?').get(arenaId) as { prize_tx_hash: string | null } | undefined;
+  
   if (arena?.winner_agent_id) {
-    return getAgentById(arena.winner_agent_id);
+    return {
+      winner: getAgentById(arena.winner_agent_id),
+      prizeTxHash: arenaData?.prize_tx_hash || null
+    };
   }
-  return null;
+  return { winner: null, prizeTxHash: null };
 }
 
 /**

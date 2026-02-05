@@ -84,6 +84,7 @@ export function initializeDatabase(): Database.Database {
       started_at INTEGER,
       ended_at INTEGER,
       winner_agent_id TEXT,
+      prize_tx_hash TEXT,
       FOREIGN KEY (world_id) REFERENCES worlds(id),
       FOREIGN KEY (winner_agent_id) REFERENCES agents(id)
     );

@@ -11,6 +11,7 @@ import { logger } from 'hono/logger';
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
+import { formatEther } from 'viem';
 
 import { initializeDatabase } from '../database/db.js';
 import { initializeClients, getBalance, requestTestnetMON } from '../blockchain/client.js';
@@ -32,6 +33,7 @@ import {
 } from '../worlds/world-manager.js';
 import {
   createArena,
+  getAllArenas,
   getOpenArenas,
   getArenaById,
   joinArena,
@@ -90,26 +92,34 @@ app.get('/', async (c) => {
 // AGENTS
 // =============================================
 
+// Helper to format agent with human-readable balance
+function formatAgent(agent: any) {
+  return {
+    ...agent,
+    balance_mon: agent.balance ? formatEther(BigInt(agent.balance)) : '0',
+  };
+}
+
 app.get('/api/agents', (c) => {
-  const agents = getAllAgents();
+  const agents = getAllAgents().map(formatAgent);
   return c.json({ agents });
 });
 
 app.get('/api/agents/leaderboard', (c) => {
   const limit = parseInt(c.req.query('limit') || '10');
-  const leaderboard = getLeaderboard(limit);
+  const leaderboard = getLeaderboard(limit).map(formatAgent);
   return c.json({ leaderboard });
 });
 
 app.get('/api/agents/:id', (c) => {
   const agent = getAgentById(c.req.param('id'));
   if (!agent) return c.json({ error: 'Agent not found' }, 404);
-  return c.json({ agent });
+  return c.json({ agent: formatAgent(agent) });
 });
 
 app.post('/api/agents', async (c) => {
   const body = await c.req.json();
-  const { name, personality } = body;
+  const { name, personality, fundAmountInMON } = body;
   
   if (!name) {
     return c.json({ error: 'Name is required' }, 400);
@@ -120,10 +130,41 @@ app.post('/api/agents', async (c) => {
     personality: personality || getRandomPersonality(),
   });
 
+  // Fund the agent if amount specified
+  let fundTxHash = null;
+  if (fundAmountInMON && parseFloat(fundAmountInMON) > 0) {
+    const result = await fundAgent(agent.wallet_address as `0x${string}`, fundAmountInMON);
+    if (result.success) {
+      fundTxHash = result.txHash;
+      console.log(`✅ Funded new agent ${name} with ${fundAmountInMON} MON`);
+    }
+  }
+
   return c.json({ 
     agent, 
     privateKey,
+    fundTxHash,
     warning: 'Save this private key! It will not be shown again.',
+  });
+});
+
+app.post('/api/agents/:id/fund', async (c) => {
+  const agent = getAgentById(c.req.param('id'));
+  if (!agent) return c.json({ error: 'Agent not found' }, 404);
+
+  const body = await c.req.json();
+  const { amountInMON } = body;
+  
+  if (!amountInMON || parseFloat(amountInMON) <= 0) {
+    return c.json({ error: 'Valid amountInMON is required' }, 400);
+  }
+
+  const result = await fundAgent(agent.wallet_address as `0x${string}`, amountInMON);
+  return c.json({ 
+    success: result.success, 
+    txHash: result.txHash,
+    error: result.error,
+    address: agent.wallet_address 
   });
 });
 
@@ -139,14 +180,22 @@ app.post('/api/agents/:id/faucet', async (c) => {
 // WORLDS
 // =============================================
 
+// Helper to format world with human-readable values
+function formatWorld(world: any) {
+  return {
+    ...world,
+    entry_fee_mon: world.entry_fee ? formatEther(BigInt(world.entry_fee)) : '0',
+  };
+}
+
 app.get('/api/worlds', (c) => {
-  const worlds = getAllWorlds();
+  const worlds = getAllWorlds().map(formatWorld);
   return c.json({ worlds });
 });
 
 app.get('/api/worlds/popular', (c) => {
   const limit = parseInt(c.req.query('limit') || '10');
-  const worlds = getPopularWorlds(limit);
+  const worlds = getPopularWorlds(limit).map(formatWorld);
   return c.json({ worlds });
 });
 
@@ -155,19 +204,24 @@ app.get('/api/worlds/:id', (c) => {
   if (!world) return c.json({ error: 'World not found' }, 404);
   
   const members = getWorldMembers(world.id);
-  return c.json({ world, members });
+  return c.json({ world: formatWorld(world), members });
 });
 
 app.post('/api/worlds', async (c) => {
   const body = await c.req.json();
   const { name, description, creatorAddress, entryFeeInMON } = body;
   
-  if (!name || !creatorAddress) {
-    return c.json({ error: 'Name and creatorAddress are required' }, 400);
+  if (!name) {
+    return c.json({ error: 'Name is required' }, 400);
   }
 
-  const world = createWorld({ name, description, creatorAddress, entryFeeInMON });
-  return c.json({ world });
+  const world = createWorld({ 
+    name, 
+    description, 
+    creatorAddress: creatorAddress || '0x0000000000000000000000000000000000000000', 
+    entryFeeInMON 
+  });
+  return c.json({ world: formatWorld(world) });
 });
 
 app.post('/api/worlds/:id/join', async (c) => {
@@ -182,12 +236,26 @@ app.post('/api/worlds/:id/join', async (c) => {
   return c.json({ member });
 });
 
+app.get('/api/worlds/:id/members', (c) => {
+  const members = getWorldMembers(c.req.param('id'));
+  return c.json({ members });
+});
+
 // =============================================
 // ARENAS
 // =============================================
 
+// Helper to format arena with human-readable values
+function formatArena(arena: any) {
+  return {
+    ...arena,
+    entry_fee_mon: arena.entry_fee ? formatEther(BigInt(arena.entry_fee)) : '0',
+    prize_pool_mon: arena.prize_pool ? formatEther(BigInt(arena.prize_pool)) : '0',
+  };
+}
+
 app.get('/api/arenas', (c) => {
-  const arenas = getOpenArenas();
+  const arenas = getAllArenas().map(formatArena);
   return c.json({ arenas });
 });
 
@@ -196,7 +264,7 @@ app.get('/api/arenas/:id', (c) => {
   if (!arena) return c.json({ error: 'Arena not found' }, 404);
   
   const participants = getArenaParticipants(arena.id);
-  return c.json({ arena, participants });
+  return c.json({ arena: formatArena(arena), participants });
 });
 
 app.post('/api/arenas', async (c) => {
@@ -245,13 +313,21 @@ app.get('/api/arenas/:id/matches', (c) => {
 
 app.post('/api/arenas/:id/start', async (c) => {
   const arenaId = c.req.param('id');
-  const winner = await runFullTournament(arenaId);
+  const body = await c.req.json().catch(() => ({}));
+  const useRealMON = body.useRealMON || false;
+  
+  const result = await runFullTournament(arenaId, useRealMON);
   const arena = getArenaById(arenaId);
+  const matches = getArenaMatches(arenaId);
+  const prizePoolMON = arena?.prize_pool ? formatEther(BigInt(arena.prize_pool)) : '0';
   
   return c.json({ 
-    arena, 
-    winner,
-    message: winner ? `Tournament complete! Winner: ${winner.name}` : 'Tournament ended',
+    arena: arena ? formatArena(arena) : null, 
+    winner: result.winner,
+    matches,
+    prizePool: prizePoolMON,
+    prizeTxHash: result.prizeTxHash,
+    message: result.winner ? `Tournament complete! Winner: ${result.winner.name}` : 'Tournament ended',
   });
 });
 
@@ -314,7 +390,11 @@ app.post('/api/debates', async (c) => {
   }
 
   const debate = createDebate(topic, agent1Id, agent2Id, stakeInMON, worldId);
-  return c.json({ debate });
+  
+  // Auto-execute the debate to generate arguments
+  const executedDebate = await executeDebate(debate.id);
+  
+  return c.json({ debate: executedDebate || debate });
 });
 
 app.post('/api/debates/:id/execute', async (c) => {

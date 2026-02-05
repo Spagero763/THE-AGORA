@@ -110,10 +110,19 @@ export function isAgentInWorld(worldId: string, agentId: string): boolean {
 /**
  * Get all agents in a world
  */
-export function getWorldMembers(worldId: string): WorldMember[] {
+export function getWorldMembers(worldId: string): Array<WorldMember & { agent?: any }> {
   const db = getDatabase();
-  const stmt = db.prepare('SELECT * FROM world_members WHERE world_id = ?');
-  return stmt.all(worldId) as WorldMember[];
+  const stmt = db.prepare(`
+    SELECT wm.*, a.name as agent_name, a.wallet_address as agent_address, a.personality as agent_personality
+    FROM world_members wm
+    LEFT JOIN agents a ON wm.agent_id = a.id
+    WHERE wm.world_id = ?
+  `);
+  const members = stmt.all(worldId) as any[];
+  return members.map(m => ({
+    ...m,
+    agent: m.agent_name ? { name: m.agent_name, address: m.agent_address, personality: m.agent_personality } : undefined
+  }));
 }
 
 /**

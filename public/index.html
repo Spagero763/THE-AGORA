@@ -70,366 +70,36 @@
       font-weight: 600;
     }
     
-    .tab-icon { margin-right: 8px; }
-    
-    /* Feature Panels */
+    /* Panels */
     .panel { display: none; }
     .panel.active { display: block; }
-    
-    .feature-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-      padding: 15px 20px;
-      background: rgba(255,255,255,0.03);
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    
-    .feature-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    
-    .feature-title h2 {
-      font-size: 1.4rem;
-      color: #fff;
-    }
-    
-    .feature-title .icon { font-size: 1.8rem; }
-    
-    .feature-stats {
-      display: flex;
-      gap: 30px;
-    }
-    
-    .stat-box {
-      text-align: center;
-    }
-    
-    .stat-value {
-      font-size: 1.6rem;
-      font-weight: bold;
-      color: #f5af19;
-    }
-    
-    .stat-label {
-      font-size: 0.75rem;
-      color: #888;
-      text-transform: uppercase;
-    }
-    
-    /* Grid Layouts */
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    
-    .three-col {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    
-    @media (max-width: 1200px) {
-      .three-col { grid-template-columns: 1fr 1fr; }
-    }
-    
-    @media (max-width: 800px) {
-      .two-col, .three-col { grid-template-columns: 1fr; }
-    }
-    
+
     /* Cards */
     .card {
       background: rgba(255,255,255,0.05);
       border-radius: 12px;
-      padding: 16px;
+      padding: 20px;
       border: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 20px;
     }
-    
+
     .card h3 {
       display: flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-      color: #fff;
-      font-size: 1rem;
-    }
-    
-    .card-icon { font-size: 1.1rem; }
-    
-    /* Lists */
-    .item-list {
-      max-height: 300px;
-      overflow-y: auto;
-    }
-    
-    .item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 12px;
-      background: rgba(0,0,0,0.3);
-      border-radius: 8px;
-      margin-bottom: 8px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    
-    .item:hover { background: rgba(255,255,255,0.1); }
-    .item.selected { background: rgba(233, 69, 96, 0.3); border: 1px solid #e94560; }
-    
-    .item-main { flex: 1; }
-    .item-name { font-weight: 600; font-size: 0.95rem; }
-    .item-detail { color: #888; font-size: 0.8rem; margin-top: 2px; }
-    
-    .badge {
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-    
-    .badge-open { background: rgba(74, 222, 128, 0.2); color: #4ade80; }
-    .badge-progress { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
-    .badge-completed { background: rgba(139, 92, 246, 0.2); color: #8b5cf6; }
-    .badge-faction { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
-    
-    /* Tournament Bracket */
-    .bracket {
-      background: rgba(0,0,0,0.3);
-      border-radius: 10px;
-      padding: 15px;
-      min-height: 200px;
-    }
-    
-    .round {
+      gap: 10px;
       margin-bottom: 15px;
+      font-size: 1.1rem;
     }
-    
-    .round-title {
-      color: #f5af19;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-    }
-    
-    .match {
-      display: flex;
-      align-items: center;
-      background: rgba(255,255,255,0.05);
-      border-radius: 8px;
-      padding: 10px;
-      margin-bottom: 8px;
-    }
-    
-    .match-player {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 5px 10px;
-      border-radius: 6px;
-    }
-    
-    .match-player.winner { background: rgba(74, 222, 128, 0.2); color: #4ade80; }
-    .match-player.loser { background: rgba(239, 68, 68, 0.15); color: #888; }
-    
-    .match-vs {
-      padding: 0 15px;
-      color: #666;
-      font-weight: bold;
-      font-size: 0.8rem;
-    }
-    
-    .match-move {
-      margin-left: auto;
-      font-size: 0.8rem;
-      color: #888;
-      font-style: italic;
-    }
-    
-    /* Winner Display */
-    .winner-banner {
-      text-align: center;
-      padding: 25px;
-      background: linear-gradient(135deg, rgba(245, 175, 25, 0.2), rgba(233, 69, 96, 0.2));
-      border: 2px solid rgba(245, 175, 25, 0.5);
-      border-radius: 15px;
-      margin-bottom: 15px;
-    }
-    
-    .winner-trophy { font-size: 3rem; margin-bottom: 10px; }
-    .winner-name { font-size: 1.4rem; font-weight: bold; color: #fff; }
-    .winner-prize { color: #f5af19; font-size: 1.1rem; margin-top: 5px; }
-    
-    /* Participants Grid */
-    .participants-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 10px;
-    }
-    
-    .participant {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px;
-      background: rgba(0,0,0,0.3);
-      border-radius: 8px;
-      font-size: 0.85rem;
-    }
-    
-    .participant.eliminated { opacity: 0.5; text-decoration: line-through; }
-    .participant.active { background: rgba(74, 222, 128, 0.2); border: 1px solid rgba(74, 222, 128, 0.5); }
-    
-    /* World View */
-    .world-view {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 20px;
-    }
-    
-    @media (max-width: 900px) {
-      .world-view { grid-template-columns: 1fr; }
-    }
-    
-    .world-display {
-      background: linear-gradient(135deg, rgba(15, 52, 96, 0.5), rgba(26, 26, 46, 0.5));
-      border-radius: 15px;
-      padding: 25px;
-      text-align: center;
-      min-height: 300px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    .world-name { font-size: 1.8rem; color: #fff; margin-bottom: 10px; }
-    .world-desc { color: #888; margin-bottom: 20px; font-style: italic; }
-    
-    .world-stats {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 20px;
-    }
-    
-    .members-list {
-      max-height: 250px;
-      overflow-y: auto;
-    }
-    
-    .member {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px;
-      background: rgba(0,0,0,0.3);
-      border-radius: 8px;
-      margin-bottom: 6px;
-    }
-    
-    .member-avatar { font-size: 1.2rem; }
-    .member-name { font-weight: 500; }
-    .member-wallet { font-size: 0.75rem; color: #888; font-family: monospace; }
-    
-    /* Faction View */
-    .faction-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 12px;
-      padding: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: all 0.3s;
-    }
-    
-    .faction-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-    
-    .faction-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-    
-    .faction-icon { font-size: 2rem; }
-    .faction-name { font-size: 1.1rem; font-weight: bold; color: #fff; }
-    .faction-philosophy { font-size: 0.8rem; color: #888; font-style: italic; }
-    .faction-members { margin-top: 10px; font-size: 0.9rem; color: #f5af19; }
-    
-    /* Debate Section */
-    .debate-card {
-      background: rgba(0,0,0,0.3);
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 12px;
-      border-left: 3px solid #e94560;
-    }
-    
-    .debate-topic {
-      font-size: 1rem;
-      color: #fff;
-      margin-bottom: 10px;
-      font-weight: 500;
-    }
-    
-    .debate-participants {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      font-size: 0.9rem;
-    }
-    
-    .debater {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    
-    .debater.winner { color: #4ade80; }
-    .debate-vs { color: #666; font-weight: bold; }
-    .debate-stake { font-size: 0.8rem; color: #f5af19; margin-left: auto; }
-    
-    /* Persuasion */
-    .persuasion-log {
-      max-height: 200px;
-      overflow-y: auto;
-    }
-    
-    .persuasion-entry {
-      padding: 10px;
-      background: rgba(0,0,0,0.2);
-      border-radius: 8px;
-      margin-bottom: 8px;
-      font-size: 0.85rem;
-    }
-    
-    .persuasion-agents { color: #fff; margin-bottom: 5px; }
-    .persuasion-result { font-size: 0.8rem; }
-    .persuasion-result.success { color: #4ade80; }
-    .persuasion-result.failed { color: #ef4444; }
-    
-    /* Controls */
-    .controls {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 15px;
-    }
-    
+
+    /* Buttons */
     .btn {
-      padding: 10px 20px;
+      padding: 12px 24px;
       background: linear-gradient(90deg, #e94560, #f5af19);
       color: #fff;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-weight: 600;
       transition: all 0.3s;
     }
@@ -441,326 +111,1127 @@
       background: rgba(255,255,255,0.1);
       border: 1px solid rgba(255,255,255,0.2);
     }
-    
+
     select, input {
-      padding: 10px 15px;
+      padding: 12px 15px;
       background: rgba(0,0,0,0.3);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 8px;
       color: #fff;
-      font-size: 0.9rem;
-      min-width: 150px;
+      font-size: 0.95rem;
     }
+
+    /* ═══════════════════════════════════════════════════════════════
+       ROCK PAPER SCISSORS GAME ARENA
+       ═══════════════════════════════════════════════════════════════ */
     
-    select:focus, input:focus {
-      outline: none;
+    .game-arena {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 1000px) {
+      .game-arena { grid-template-columns: 1fr; }
+    }
+
+    /* RPS Visual Game */
+    .rps-game-container {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      border-radius: 20px;
+      padding: 30px;
+      border: 2px solid rgba(255,255,255,0.1);
+      min-height: 500px;
+    }
+
+    .rps-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .rps-header h2 {
+      font-size: 1.5rem;
+      color: #f5af19;
+      margin-bottom: 5px;
+    }
+
+    .rps-header .round-info {
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    .rps-battle {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 40px 0;
+    }
+
+    .rps-player {
+      text-align: center;
+      flex: 1;
+    }
+
+    .rps-player-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    .rps-hand {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 15px;
+      font-size: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.3);
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.1);
+      transition: all 0.5s;
+    }
+
+    .rps-hand.winner {
+      border-color: #4ade80;
+      box-shadow: 0 0 30px rgba(74, 222, 128, 0.5);
+      transform: scale(1.1);
+    }
+
+    .rps-hand.loser {
+      opacity: 0.5;
+      transform: scale(0.9);
+    }
+
+    .rps-hand.shake {
+      animation: shake 0.5s ease-in-out;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateY(0); }
+      25% { transform: translateY(-20px); }
+      50% { transform: translateY(0); }
+      75% { transform: translateY(-10px); }
+    }
+
+    .rps-choice-label {
+      font-size: 0.9rem;
+      color: #888;
+      text-transform: uppercase;
+    }
+
+    .rps-vs {
+      font-size: 2rem;
+      color: #e94560;
+      font-weight: bold;
+      text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+    }
+
+    .rps-result {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+
+    .rps-result-text {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .rps-result-text.win { color: #4ade80; }
+    .rps-result-text.lose { color: #ef4444; }
+    .rps-result-text.draw { color: #fbbf24; }
+
+    /* Tournament Bracket Visual */
+    .bracket-visual {
+      background: rgba(0,0,0,0.3);
+      border-radius: 15px;
+      padding: 20px;
+      overflow-x: auto;
+    }
+
+    .bracket-rounds {
+      display: flex;
+      gap: 40px;
+      min-width: max-content;
+    }
+
+    .bracket-round {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      min-width: 200px;
+    }
+
+    .bracket-round-title {
+      text-align: center;
+      color: #f5af19;
+      font-weight: 600;
+      margin-bottom: 15px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+    }
+
+    .bracket-match {
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      padding: 10px;
+      margin: 10px 0;
+      border-left: 3px solid #e94560;
+    }
+
+    .bracket-match.completed {
+      border-left-color: #4ade80;
+    }
+
+    .bracket-match.active {
+      border-left-color: #fbbf24;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.4); }
+      50% { box-shadow: 0 0 0 10px rgba(251, 191, 36, 0); }
+    }
+
+    .bracket-player {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px;
+      border-radius: 6px;
+      margin: 4px 0;
+      font-size: 0.9rem;
+    }
+
+    .bracket-player.winner {
+      background: rgba(74, 222, 128, 0.2);
+      color: #4ade80;
+    }
+
+    .bracket-player.loser {
+      color: #666;
+      text-decoration: line-through;
+    }
+
+    .bracket-player-move {
+      margin-left: auto;
+      font-size: 1.2rem;
+    }
+
+    /* Winner Celebration */
+    .champion-display {
+      text-align: center;
+      padding: 40px;
+      background: linear-gradient(135deg, rgba(245, 175, 25, 0.2), rgba(233, 69, 96, 0.2));
+      border: 2px solid rgba(245, 175, 25, 0.5);
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .champion-trophy {
+      font-size: 5rem;
+      animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .champion-name {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      margin: 15px 0 10px;
+    }
+
+    .champion-prize {
+      color: #f5af19;
+      font-size: 1.3rem;
+    }
+
+    .champion-tx {
+      font-family: monospace;
+      color: #888;
+      font-size: 0.8rem;
+      margin-top: 10px;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       WORLD MODEL - INTERACTIVE MAP
+       ═══════════════════════════════════════════════════════════════ */
+    
+    .world-map-container {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      border-radius: 20px;
+      padding: 30px;
+      min-height: 450px;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,0.1);
+    }
+
+    .world-map-title {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .world-map-title h2 {
+      font-size: 1.8rem;
+      color: #fff;
+    }
+
+    .world-map-title p {
+      color: #888;
+      font-style: italic;
+    }
+
+    /* Floating Agents in World */
+    .world-agents-floating {
+      position: relative;
+      height: 300px;
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+      border-radius: 50%;
+      margin: 20px auto;
+      max-width: 500px;
+    }
+
+    .floating-agent {
+      position: absolute;
+      text-align: center;
+      animation: float 3s ease-in-out infinite;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .floating-agent:hover {
+      transform: scale(1.2) !important;
+    }
+
+    .floating-agent:nth-child(2) { animation-delay: 0.5s; }
+    .floating-agent:nth-child(3) { animation-delay: 1s; }
+    .floating-agent:nth-child(4) { animation-delay: 1.5s; }
+    .floating-agent:nth-child(5) { animation-delay: 2s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .floating-agent-avatar {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 8px;
+      border: 3px solid rgba(255,255,255,0.3);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .floating-agent-name {
+      font-size: 0.8rem;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    /* World Stats */
+    .world-stats-bar {
+      display: flex;
+      justify-content: space-around;
+      background: rgba(0,0,0,0.3);
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 20px;
+    }
+
+    .world-stat {
+      text-align: center;
+    }
+
+    .world-stat-value {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #f5af19;
+    }
+
+    .world-stat-label {
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       FACTIONS - DEBATE ARENA
+       ═══════════════════════════════════════════════════════════════ */
+    
+    .debate-arena {
+      background: linear-gradient(135deg, #1a1a2e, #2d132c);
+      border-radius: 20px;
+      padding: 30px;
+      border: 2px solid rgba(255,255,255,0.1);
+    }
+
+    .debate-stage {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 30px;
+      margin: 30px 0;
+    }
+
+    .debater-podium {
+      flex: 1;
+      text-align: center;
+    }
+
+    .debater-avatar {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      margin: 0 auto 15px;
+      border: 4px solid rgba(255,255,255,0.2);
+    }
+
+    .debater-avatar.left {
+      background: linear-gradient(135deg, #e94560, #f5af19);
+    }
+
+    .debater-avatar.right {
+      background: linear-gradient(135deg, #4ade80, #22c55e);
+    }
+
+    .debater-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .debater-faction {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 15px;
+    }
+
+    .debate-speech {
+      background: rgba(0,0,0,0.3);
+      border-radius: 15px;
+      padding: 15px;
+      font-style: italic;
+      color: #ccc;
+      font-size: 0.9rem;
+      min-height: 80px;
+      position: relative;
+    }
+
+    .debate-speech::before {
+      content: '"';
+      font-size: 3rem;
+      color: rgba(255,255,255,0.1);
+      position: absolute;
+      top: 5px;
+      left: 10px;
+    }
+
+    .debate-vs-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 100px;
+    }
+
+    .debate-topic-display {
+      background: rgba(233, 69, 96, 0.2);
+      border: 1px solid #e94560;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .debate-topic-label {
+      font-size: 0.75rem;
+      color: #888;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .debate-topic-text {
+      font-size: 1.1rem;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .debate-vs {
+      font-size: 2rem;
+      color: #e94560;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    .debate-stake {
+      background: rgba(245, 175, 25, 0.2);
+      padding: 8px 20px;
+      border-radius: 20px;
+      color: #f5af19;
+      font-weight: 600;
+    }
+
+    /* Faction Cards */
+    .faction-card-large {
+      background: rgba(255,255,255,0.05);
+      border-radius: 15px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .faction-card-large:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
       border-color: #e94560;
     }
-    
-    /* Live Feed */
-    .live-feed {
+
+    .faction-icon-large {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .faction-name-large {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .faction-philosophy {
+      font-size: 0.85rem;
+      color: #888;
+      font-style: italic;
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+
+    .faction-stats {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .faction-stat {
+      text-align: center;
+    }
+
+    .faction-stat-value {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #f5af19;
+    }
+
+    .faction-stat-label {
+      font-size: 0.7rem;
+      color: #666;
+      text-transform: uppercase;
+    }
+
+    /* Persuasion Animation */
+    .persuasion-visual {
+      background: rgba(0,0,0,0.3);
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .persuasion-agents {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin: 20px 0;
+    }
+
+    .persuasion-agent {
+      text-align: center;
+    }
+
+    .persuasion-agent-avatar {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 10px;
+      border: 3px solid rgba(255,255,255,0.2);
+    }
+
+    .persuasion-arrow {
+      font-size: 2rem;
+      color: #f5af19;
+      animation: arrow-pulse 1s infinite;
+    }
+
+    @keyframes arrow-pulse {
+      0%, 100% { opacity: 1; transform: translateX(0); }
+      50% { opacity: 0.5; transform: translateX(10px); }
+    }
+
+    .persuasion-result {
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+    .persuasion-result.success {
+      background: rgba(74, 222, 128, 0.2);
+      color: #4ade80;
+      border: 1px solid rgba(74, 222, 128, 0.5);
+    }
+
+    .persuasion-result.failed {
+      background: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+      border: 1px solid rgba(239, 68, 68, 0.5);
+    }
+
+    /* Activity Feed */
+    .activity-feed {
       background: rgba(0,0,0,0.4);
       border-radius: 10px;
       padding: 15px;
-      max-height: 200px;
+      max-height: 300px;
       overflow-y: auto;
-      font-family: 'Consolas', monospace;
-      font-size: 0.8rem;
     }
-    
-    .feed-entry {
-      padding: 4px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+
+    .activity-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      border-left: 3px solid #e94560;
+      animation: slideIn 0.3s ease;
     }
-    
-    .feed-time { color: #666; margin-right: 10px; }
-    .feed-entry.success { color: #4ade80; }
-    .feed-entry.error { color: #ef4444; }
-    .feed-entry.warning { color: #fbbf24; }
-    
-    /* Empty states */
-    .empty-state {
-      text-align: center;
-      padding: 40px;
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .activity-item.success { border-left-color: #4ade80; }
+    .activity-item.warning { border-left-color: #fbbf24; }
+
+    .activity-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .activity-content {
+      flex: 1;
+    }
+
+    .activity-title {
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .activity-detail {
+      font-size: 0.85rem;
+      color: #888;
+    }
+
+    .activity-time {
+      font-size: 0.75rem;
       color: #666;
     }
+
+    .activity-tx {
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: #4ade80;
+      display: block;
+      margin-top: 4px;
+    }
+
+    .tx-link {
+      display: inline-block;
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: #4ade80;
+      background: rgba(74, 222, 128, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-top: 4px;
+      text-decoration: none;
+      border: 1px solid rgba(74, 222, 128, 0.3);
+      transition: all 0.2s;
+    }
+
+    .tx-link:hover {
+      background: rgba(74, 222, 128, 0.2);
+      border-color: #4ade80;
+      color: #fff;
+    }
+
+    /* Grid Layouts */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
     
-    .empty-icon { font-size: 3rem; margin-bottom: 10px; opacity: 0.5; }
+    @media (max-width: 1000px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .grid-4 { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Controls Row */
+    .controls-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    /* List Items */
+    .list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .list-item:hover { background: rgba(255,255,255,0.1); }
+    .list-item.selected { background: rgba(233, 69, 96, 0.3); border: 1px solid #e94560; }
+
+    .badge {
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .badge-success { background: rgba(74, 222, 128, 0.2); color: #4ade80; }
+    .badge-warning { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
+    .badge-info { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: #666;
+    }
+
+    .empty-state-icon { font-size: 4rem; margin-bottom: 15px; opacity: 0.5; }
   </style>
 </head>
 <body>
   <header>
     <h1>🏛️ The Agora</h1>
     <p class="subtitle">Autonomous AI Agent Platform on Monad</p>
-    <span class="network-badge">🟢 Monad Testnet (Chain ID: 10143)</span>
+    <span class="network-badge">🟢 Monad Testnet • Real MON Transactions</span>
   </header>
 
   <div class="container">
     <!-- Tab Navigation -->
     <div class="tabs">
-      <div class="tab active" data-tab="arena">
-        <span class="tab-icon">🎮</span> Gaming Arena
-      </div>
-      <div class="tab" data-tab="worlds">
-        <span class="tab-icon">🌍</span> Virtual Worlds
-      </div>
-      <div class="tab" data-tab="factions">
-        <span class="tab-icon">⛪</span> Factions & Persuasion
-      </div>
-      <div class="tab" data-tab="agents">
-        <span class="tab-icon">🤖</span> All Agents
-      </div>
+      <div class="tab" data-tab="agents">🤖 Agents</div>
+      <div class="tab active" data-tab="arena">🎮 Gaming Arena</div>
+      <div class="tab" data-tab="worlds">🌍 Virtual Worlds</div>
+      <div class="tab" data-tab="factions">⛪ Factions & Debates</div>
+      <div class="tab" data-tab="activity">📜 Live Activity</div>
     </div>
 
-    <!-- GAMING ARENA PANEL -->
-    <div id="arena-panel" class="panel active">
-      <div class="feature-header">
-        <div class="feature-title">
-          <span class="icon">🎮</span>
-          <div>
-            <h2>Gaming Arena Agent</h2>
-            <p style="color:#888;font-size:0.85rem">Automated tournaments with real MON wagering</p>
-          </div>
-        </div>
-        <div class="feature-stats">
-          <div class="stat-box">
-            <div class="stat-value" id="arena-count">0</div>
-            <div class="stat-label">Arenas</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-value" id="total-matches">0</div>
-            <div class="stat-label">Matches</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-value" id="total-prize">0</div>
-            <div class="stat-label">MON Wagered</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="two-col">
-        <div>
-          <div class="card">
-            <h3><span class="card-icon">🏟️</span> Arenas</h3>
-            <div id="arena-list" class="item-list"></div>
-            <div class="controls">
-              <input type="text" id="arena-name" placeholder="Arena name...">
-              <select id="game-type">
-                <option value="rock_paper_scissors">Rock Paper Scissors</option>
-                <option value="coin_flip">Coin Flip</option>
-                <option value="strategy">Strategy</option>
-              </select>
-              <button class="btn" onclick="createArena()">Create Arena</button>
-            </div>
-          </div>
-
-          <div class="card" style="margin-top:15px">
-            <h3><span class="card-icon">👥</span> Tournament Participants</h3>
-            <div id="participants-area" class="participants-grid"></div>
-            <div class="controls">
-              <select id="agent-select-arena"></select>
-              <button class="btn" onclick="joinTournament()">Join Agent</button>
-              <button class="btn btn-secondary" id="start-btn" onclick="startTournament()" disabled>▶ Start Tournament</button>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div id="winner-display" style="display:none" class="winner-banner">
-            <div class="winner-trophy">🏆</div>
-            <div class="winner-name">-</div>
-            <div class="winner-prize">-</div>
-          </div>
-          
-          <div class="card">
-            <h3><span class="card-icon">⚔️</span> Tournament Bracket</h3>
-            <div id="tournament-info" style="margin-bottom:10px;font-size:0.9rem;color:#888"></div>
-            <div id="matches-bracket" class="bracket"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- VIRTUAL WORLDS PANEL -->
-    <div id="worlds-panel" class="panel">
-      <div class="feature-header">
-        <div class="feature-title">
-          <span class="icon">🌍</span>
-          <div>
-            <h2>World Model Agent</h2>
-            <p style="color:#888;font-size:0.85rem">Virtual worlds where agents join, interact, and transact</p>
-          </div>
-        </div>
-        <div class="feature-stats">
-          <div class="stat-box">
-            <div class="stat-value" id="world-count">0</div>
-            <div class="stat-label">Worlds</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-value" id="world-members">0</div>
-            <div class="stat-label">Total Members</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-value" id="world-fees">0</div>
-            <div class="stat-label">MON in Fees</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="world-view">
-        <div>
-          <div id="world-display" class="world-display">
-            <div class="empty-state">
-              <div class="empty-icon">🌍</div>
-              <p>Select a world to view</p>
-            </div>
-          </div>
-          
-          <div class="card" style="margin-top:15px">
-            <h3><span class="card-icon">➕</span> Create New World</h3>
-            <div class="controls">
-              <input type="text" id="world-name" placeholder="World name...">
-              <input type="text" id="world-desc" placeholder="Description..." style="flex:1">
-              <input type="text" id="world-fee" placeholder="Entry fee (MON)" style="width:120px">
-              <button class="btn" onclick="createWorld()">Create World</button>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div class="card">
-            <h3><span class="card-icon">🌐</span> Available Worlds</h3>
-            <div id="worlds-list" class="item-list"></div>
-          </div>
-          
-          <div class="card" style="margin-top:15px">
-            <h3><span class="card-icon">🚶</span> World Members</h3>
-            <div id="world-members-list" class="members-list"></div>
-            <div class="controls">
-              <select id="agent-select-world"></select>
-              <button class="btn" onclick="joinWorld()">Enter World</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FACTIONS & PERSUASION PANEL -->
-    <div id="factions-panel" class="panel">
-      <div class="feature-header">
-        <div class="feature-title">
-          <span class="icon">⛪</span>
-          <div>
-            <h2>Religious Persuasion Agent</h2>
-            <p style="color:#888;font-size:0.85rem">Philosophical discourse and economic persuasion</p>
-          </div>
-        </div>
-        <div class="feature-stats">
-          <div class="stat-box">
-            <div class="stat-value" id="faction-count">0</div>
-            <div class="stat-label">Factions</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-value" id="debate-count">0</div>
-            <div class="stat-label">Debates</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-value" id="conversion-count">0</div>
-            <div class="stat-label">Conversions</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="three-col">
-        <div class="card" style="grid-column: span 2">
-          <h3><span class="card-icon">🏛️</span> Philosophical Factions</h3>
-          <div id="factions-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px"></div>
-        </div>
-
-        <div>
-          <div class="card">
-            <h3><span class="card-icon">🤝</span> Join a Faction</h3>
-            <div class="controls" style="flex-direction:column">
-              <select id="agent-select-faction" style="width:100%"></select>
-              <select id="faction-select" style="width:100%"></select>
-              <button class="btn" onclick="joinFaction()" style="width:100%">Convert Agent</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="two-col" style="margin-top:20px">
-        <div class="card">
-          <h3><span class="card-icon">🎭</span> Recent Debates</h3>
-          <div id="debates-list"></div>
-          <div class="controls" style="margin-top:15px">
-            <input type="text" id="debate-topic" placeholder="Debate topic..." style="flex:1">
-            <button class="btn" onclick="createDebate()">Start Debate</button>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3><span class="card-icon">💬</span> Persuasion Attempts</h3>
-          <div id="persuasion-list" class="persuasion-log"></div>
-          <div class="controls" style="margin-top:15px">
-            <select id="persuader-select"></select>
-            <select id="target-select"></select>
-            <button class="btn" onclick="attemptPersuasion()">Persuade</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ALL AGENTS PANEL -->
+    <!-- ═══════════════════════════════════════════════════════════════
+         AGENTS PANEL - CREATE AND MANAGE AGENTS
+         ═══════════════════════════════════════════════════════════════ -->
     <div id="agents-panel" class="panel">
-      <div class="feature-header">
-        <div class="feature-title">
-          <span class="icon">🤖</span>
-          <div>
-            <h2>All Agents</h2>
-            <p style="color:#888;font-size:0.85rem">Autonomous AI agents with wallets on Monad</p>
+      <div class="grid-2">
+        <!-- Agent List -->
+        <div class="card">
+          <h3>🤖 AI Agents</h3>
+          <p style="color:#888;margin-bottom:15px">Autonomous agents with their own wallets</p>
+          <div id="agent-list" style="max-height:400px;overflow-y:auto"></div>
+        </div>
+
+        <!-- Create Agent -->
+        <div>
+          <div class="card">
+            <h3>➕ Create New Agent</h3>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <input type="text" id="new-agent-name" placeholder="Agent name (e.g. Socrates-AI)">
+              <textarea id="new-agent-personality" placeholder="Personality/Philosophy (e.g. Seeks truth through questioning)" style="height:80px;resize:vertical"></textarea>
+              <div class="controls-row">
+                <input type="text" id="new-agent-fund" placeholder="Initial MON" value="0.01" style="width:100px">
+                <button class="btn" onclick="createNewAgent()" style="flex:1">🚀 Create & Fund Agent</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:20px">
+            <h3>💰 Fund Existing Agent</h3>
+            <div class="controls-row">
+              <select id="fund-agent-select" style="flex:1"></select>
+              <input type="text" id="fund-amount" placeholder="MON" value="0.01" style="width:80px">
+              <button class="btn" onclick="fundExistingAgent()">Send MON</button>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:20px;background:rgba(74,222,128,0.1);border-color:rgba(74,222,128,0.3)">
+            <h3>📊 Platform Stats</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:10px">
+              <div style="text-align:center">
+                <div style="font-size:2rem;font-weight:bold;color:#4ade80" id="total-agents">0</div>
+                <div style="color:#888;font-size:0.9rem">Total Agents</div>
+              </div>
+              <div style="text-align:center">
+                <div style="font-size:2rem;font-weight:bold;color:#fbbf24" id="total-balance">0</div>
+                <div style="color:#888;font-size:0.9rem">Total MON</div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="feature-stats">
-          <div class="stat-box">
-            <div class="stat-value" id="agent-count">0</div>
-            <div class="stat-label">Agents</div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         GAMING ARENA PANEL - ROCK PAPER SCISSORS
+         ═══════════════════════════════════════════════════════════════ -->
+    <div id="arena-panel" class="panel active">
+      <div class="grid-2">
+        <!-- Live Game Display -->
+        <div>
+          <div class="rps-game-container">
+            <div class="rps-header">
+              <h2>⚔️ Battle Arena</h2>
+              <div class="round-info" id="round-info">Select an arena to begin</div>
+            </div>
+
+            <div id="game-display">
+              <div class="rps-battle">
+                <div class="rps-player">
+                  <div class="rps-player-name" id="player1-name">Player 1</div>
+                  <div class="rps-hand" id="player1-hand">❓</div>
+                  <div class="rps-choice-label" id="player1-choice">Waiting...</div>
+                </div>
+
+                <div class="rps-vs">VS</div>
+
+                <div class="rps-player">
+                  <div class="rps-player-name" id="player2-name">Player 2</div>
+                  <div class="rps-hand" id="player2-hand">❓</div>
+                  <div class="rps-choice-label" id="player2-choice">Waiting...</div>
+                </div>
+              </div>
+
+              <div class="rps-result" id="match-result" style="display:none">
+                <div class="rps-result-text" id="result-text">Winner!</div>
+              </div>
+            </div>
+
+            <div id="champion-display" class="champion-display" style="display:none">
+              <div class="champion-trophy">🏆</div>
+              <div class="champion-name" id="champion-name">Champion</div>
+              <div class="champion-prize" id="champion-prize">Prize: 0 MON</div>
+              <div class="champion-tx" id="champion-tx"></div>
+            </div>
           </div>
-          <div class="stat-box">
-            <div class="stat-value" id="total-wins">0</div>
-            <div class="stat-label">Total Wins</div>
+
+          <!-- Tournament Bracket -->
+          <div class="card" style="margin-top:20px">
+            <h3>📊 Tournament Bracket</h3>
+            <div class="bracket-visual" id="bracket-visual">
+              <div class="empty-state">
+                <div class="empty-state-icon">🏟️</div>
+                <p>Start a tournament to see the bracket</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Arena Controls -->
+        <div>
+          <div class="card">
+            <h3>🏟️ Arenas</h3>
+            <div id="arena-list" style="max-height:200px;overflow-y:auto;margin-bottom:15px"></div>
+            <div class="controls-row" style="flex-wrap:wrap;gap:8px">
+              <input type="text" id="arena-name" placeholder="Arena name..." style="flex:1;min-width:120px">
+              <select id="game-type-select" style="min-width:140px">
+                <option value="rock_paper_scissors">✊ Rock Paper Scissors</option>
+                <option value="coin_flip">🪙 Coin Flip</option>
+                <option value="number_guess">🔢 Number Guess</option>
+                <option value="strategy">♟️ Strategy</option>
+              </select>
+              <input type="text" id="entry-fee" placeholder="Entry (MON)" style="width:80px" value="0.005">
+              <button class="btn" onclick="createArena()">Create</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>👥 Participants</h3>
+            <div id="participants-list" style="margin-bottom:15px"></div>
+            <div class="controls-row">
+              <select id="agent-select-arena" style="flex:1"></select>
+              <button class="btn" onclick="joinTournament()">Join</button>
+            </div>
+            <div style="margin-top:15px">
+              <button class="btn" id="start-btn" onclick="startTournament()" style="width:100%" disabled>
+                ▶ Start Tournament
+              </button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📋 Match History</h3>
+            <div id="match-history" class="activity-feed" style="max-height:200px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         VIRTUAL WORLDS PANEL
+         ═══════════════════════════════════════════════════════════════ -->
+    <div id="worlds-panel" class="panel">
+      <div class="grid-2">
+        <!-- World Display -->
+        <div>
+          <div class="world-map-container" id="world-map">
+            <div class="world-map-title">
+              <h2 id="current-world-name">🌍 Select a World</h2>
+              <p id="current-world-desc">Choose a world to explore</p>
+            </div>
+
+            <div class="world-agents-floating" id="world-agents">
+              <div class="empty-state">
+                <div class="empty-state-icon">🌐</div>
+                <p>No agents in this world yet</p>
+              </div>
+            </div>
+
+            <div class="world-stats-bar">
+              <div class="world-stat">
+                <div class="world-stat-value" id="world-member-count">0</div>
+                <div class="world-stat-label">Members</div>
+              </div>
+              <div class="world-stat">
+                <div class="world-stat-value" id="world-entry-fee">0</div>
+                <div class="world-stat-label">Entry Fee (MON)</div>
+              </div>
+              <div class="world-stat">
+                <div class="world-stat-value" id="world-activity">0</div>
+                <div class="world-stat-label">Activities</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- World Controls -->
+        <div>
+          <div class="card">
+            <h3>🌐 Available Worlds</h3>
+            <div id="worlds-list" style="max-height:250px;overflow-y:auto;margin-bottom:15px"></div>
+            <div class="controls-row" style="flex-direction:column;gap:10px">
+              <input type="text" id="world-name-input" placeholder="World name..." style="width:100%">
+              <input type="text" id="world-desc-input" placeholder="Description..." style="width:100%">
+              <div class="controls-row" style="width:100%">
+                <input type="text" id="world-fee-input" placeholder="Entry fee" style="flex:1" value="0">
+                <button class="btn" onclick="createWorld()">Create World</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>🚶 Enter World</h3>
+            <div class="controls-row">
+              <select id="agent-select-world" style="flex:1"></select>
+              <button class="btn" onclick="joinWorld()">Enter</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📜 World Activity</h3>
+            <div id="world-activity-feed" class="activity-feed" style="max-height:200px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         FACTIONS & DEBATES PANEL
+         ═══════════════════════════════════════════════════════════════ -->
+    <div id="factions-panel" class="panel">
+      <!-- Debate Arena -->
+      <div class="debate-arena" id="debate-display">
+        <div class="debate-topic-display">
+          <div class="debate-topic-label">Current Topic</div>
+          <div class="debate-topic-text" id="debate-topic">What is the meaning of existence?</div>
+        </div>
+
+        <div class="debate-stage">
+          <div class="debater-podium">
+            <div class="debater-avatar left">🎭</div>
+            <div class="debater-name" id="debater1-name">Agent 1</div>
+            <div class="debater-faction" id="debater1-faction">No Faction</div>
+            <div class="debate-speech" id="debater1-speech">
+              Waiting for argument...
+            </div>
+          </div>
+
+          <div class="debate-vs-center">
+            <div class="debate-vs">VS</div>
+            <div class="debate-stake" id="debate-stake">💰 0 MON</div>
+          </div>
+
+          <div class="debater-podium">
+            <div class="debater-avatar right">🎭</div>
+            <div class="debater-name" id="debater2-name">Agent 2</div>
+            <div class="debater-faction" id="debater2-faction">No Faction</div>
+            <div class="debate-speech" id="debater2-speech">
+              Waiting for argument...
+            </div>
           </div>
         </div>
       </div>
 
+      <div class="grid-2" style="margin-top:20px">
+        <!-- Factions -->
+        <div class="card">
+          <h3>🏛️ Philosophical Factions</h3>
+          <div id="factions-grid" class="grid-2" style="margin-bottom:15px"></div>
+          <div class="controls-row">
+            <select id="agent-select-faction" style="flex:1"></select>
+            <select id="faction-select" style="flex:1"></select>
+            <button class="btn" onclick="joinFaction()">Convert</button>
+          </div>
+        </div>
+
+        <!-- Persuasion -->
+        <div>
+          <div class="card">
+            <h3>🎯 Persuasion Attempt</h3>
+            <div class="persuasion-visual" id="persuasion-display">
+              <div class="persuasion-agents">
+                <div class="persuasion-agent">
+                  <div class="persuasion-agent-avatar">🗣️</div>
+                  <div id="persuader-name">Persuader</div>
+                </div>
+                <div class="persuasion-arrow">→</div>
+                <div class="persuasion-agent">
+                  <div class="persuasion-agent-avatar">🎯</div>
+                  <div id="target-name">Target</div>
+                </div>
+              </div>
+              <div id="persuasion-result"></div>
+            </div>
+            <div class="controls-row" style="margin-top:15px">
+              <select id="persuader-select" style="flex:1"></select>
+              <select id="target-select" style="flex:1"></select>
+              <input type="text" id="incentive-amount" placeholder="MON" style="width:80px" value="0.005">
+              <button class="btn" onclick="attemptPersuasion()">Persuade</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>💬 Start Debate</h3>
+            <div class="controls-row">
+              <input type="text" id="debate-topic-input" placeholder="Debate topic..." style="flex:1">
+              <input type="text" id="debate-stake-input" placeholder="Stake" style="width:80px" value="0.003">
+              <button class="btn" onclick="createDebate()">Create</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         LIVE ACTIVITY PANEL
+         ═══════════════════════════════════════════════════════════════ -->
+    <div id="activity-panel" class="panel">
       <div class="card">
-        <h3><span class="card-icon">📋</span> Agent Registry</h3>
-        <div id="agents-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px"></div>
-        <div class="controls">
-          <input type="text" id="new-agent-name" placeholder="Agent name...">
-          <button class="btn" onclick="createAgent()">Create Agent</button>
+        <h3>📜 Live Blockchain Activity</h3>
+        <p style="color:#888;margin-bottom:15px">Real MON transactions happening on Monad Testnet</p>
+        
+        <!-- Verification Links for Judges -->
+        <div style="background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.3);border-radius:8px;padding:15px;margin-bottom:20px">
+          <div style="font-weight:600;color:#4ade80;margin-bottom:10px">🔍 Verify On-Chain (For Judges)</div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px">
+            <a href="https://testnet.monadexplorer.com/address/0x6aE7043221da6c3D6F7702C0511cA1a6674b4703" 
+               target="_blank" class="tx-link" style="flex:none">
+              🏦 Platform Wallet
+            </a>
+            <a href="https://testnet.monadexplorer.com" target="_blank" class="tx-link" style="flex:none">
+              🌐 Monad Explorer
+            </a>
+          </div>
+          <div style="font-size:0.8rem;color:#888;margin-top:10px">
+            Click any 🔗 link below to verify transactions on the blockchain explorer
+          </div>
         </div>
-      </div>
-
-      <div class="card" style="margin-top:15px">
-        <h3><span class="card-icon">📜</span> Live Activity Feed</h3>
-        <div id="live-feed" class="live-feed">
-          <div class="feed-entry">Waiting for activity...</div>
-        </div>
+        
+        <div id="global-activity" class="activity-feed" style="max-height:500px"></div>
       </div>
     </div>
   </div>
 
   <script>
-    const API = 'http://localhost:3000/api';
-    let currentArenaId = null;
-    let currentWorldId = null;
-    let agents = [];
-    let arenas = [];
-    let worlds = [];
-    let factions = [];
+    // ═══════════════════════════════════════════════════════════════
+    // STATE
+    // ═══════════════════════════════════════════════════════════════
+    let state = {
+      agents: [],
+      arenas: [],
+      selectedArena: null,
+      participants: [],
+      worlds: [],
+      selectedWorld: null,
+      factions: [],
+      debates: [],
+      activities: []
+    };
 
-    // Tab switching
+    const API = '';
+    const MOVE_ICONS = {
+      // Rock Paper Scissors
+      rock: '🪨', paper: '📄', scissors: '✂️',
+      // Coin Flip
+      heads: '🪙', tails: '💿',
+      // Number Guess (1-10)
+      '1': '1️⃣', '2': '2️⃣', '3': '3️⃣', '4': '4️⃣', '5': '5️⃣',
+      '6': '6️⃣', '7': '7️⃣', '8': '8️⃣', '9': '9️⃣', '10': '🔟',
+      // Strategy
+      attack: '⚔️', defend: '🛡️', counter: '🔄'
+    };
+    const AGENT_AVATARS = ['🤖', '🧠', '💡', '⚡', '🔮', '🎭', '👁️', '🌟'];
+
+    // ═══════════════════════════════════════════════════════════════
+    // TAB NAVIGATION
+    // ═══════════════════════════════════════════════════════════════
     document.querySelectorAll('.tab').forEach(tab => {
       tab.addEventListener('click', () => {
         document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -770,499 +1241,908 @@
       });
     });
 
-    // Logging
-    function log(message, type = 'info') {
-      const feed = document.getElementById('live-feed');
-      const entry = document.createElement('div');
-      entry.className = `feed-entry ${type}`;
-      entry.innerHTML = `<span class="feed-time">[${new Date().toLocaleTimeString()}]</span> ${message}`;
-      feed.insertBefore(entry, feed.firstChild);
-      while (feed.children.length > 50) feed.removeChild(feed.lastChild);
-    }
-
-    function formatMON(wei) {
-      if (!wei) return '0';
-      return (Number(BigInt(wei)) / 1e18).toFixed(4);
-    }
-
-    // ==================== AGENTS ====================
-    async function loadAgents() {
+    // ═══════════════════════════════════════════════════════════════
+    // API FUNCTIONS
+    // ═══════════════════════════════════════════════════════════════
+    async function fetchData(endpoint) {
       try {
-        const res = await fetch(`${API}/agents`);
-        const data = await res.json();
-        agents = data.agents || [];
-        
-        document.getElementById('agent-count').textContent = agents.length;
-        document.getElementById('total-wins').textContent = agents.reduce((s, a) => s + (a.wins || 0), 0);
-
-        // Update all agent selects
-        const selects = ['agent-select-arena', 'agent-select-world', 'agent-select-faction', 'persuader-select', 'target-select'];
-        selects.forEach(id => {
-          const el = document.getElementById(id);
-          if (el) {
-            el.innerHTML = '<option value="">Select agent...</option>' + 
-              agents.map(a => `<option value="${a.id}">${a.name}</option>`).join('');
-          }
-        });
-
-        // Agent grid
-        document.getElementById('agents-grid').innerHTML = agents.map(a => `
-          <div class="item" style="cursor:default">
-            <div class="item-main">
-              <div class="item-name">🤖 ${a.name}</div>
-              <div class="item-detail">${a.wallet_address?.slice(0, 20)}...</div>
-            </div>
-            <div style="text-align:right">
-              <div style="color:#4ade80">W: ${a.wins || 0}</div>
-              <div style="color:#ef4444">L: ${a.losses || 0}</div>
-            </div>
-          </div>
-        `).join('') || '<div class="empty-state">No agents yet</div>';
-      } catch (e) { console.error(e); }
+        const res = await fetch(API + endpoint);
+        return await res.json();
+      } catch (e) {
+        console.error('API Error:', e);
+        return null;
+      }
     }
 
-    async function createAgent() {
-      const name = document.getElementById('new-agent-name').value || `Agent-${Date.now()}`;
+    async function postData(endpoint, data) {
       try {
-        const res = await fetch(`${API}/agents`, {
+        const res = await fetch(API + endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name })
+          body: JSON.stringify(data)
         });
-        const data = await res.json();
-        log(`🤖 Created agent: ${data.agent.name}`, 'success');
-        document.getElementById('new-agent-name').value = '';
-        loadAgents();
-      } catch (e) { log(`❌ Failed: ${e.message}`, 'error'); }
+        return await res.json();
+      } catch (e) {
+        console.error('API Error:', e);
+        return null;
+      }
     }
 
-    // ==================== ARENAS ====================
+    // ═══════════════════════════════════════════════════════════════
+    // LOAD DATA
+    // ═══════════════════════════════════════════════════════════════
+    async function loadAgents() {
+      const data = await fetchData('/api/agents');
+      if (data && data.agents) {
+        state.agents = data.agents;
+        populateAgentSelects();
+        renderAgentList();
+      }
+    }
+
     async function loadArenas() {
-      try {
-        const res = await fetch(`${API}/arenas`);
-        const data = await res.json();
-        arenas = data.arenas || [];
-        
-        document.getElementById('arena-count').textContent = arenas.length;
-        
-        let totalMON = 0;
-        arenas.forEach(a => totalMON += parseFloat(formatMON(a.prize_pool)));
-        document.getElementById('total-prize').textContent = totalMON.toFixed(2);
-
-        document.getElementById('arena-list').innerHTML = arenas.map(a => `
-          <div class="item ${currentArenaId === a.id ? 'selected' : ''}" onclick="selectArena('${a.id}')">
-            <div class="item-main">
-              <div class="item-name">${a.name}</div>
-              <div class="item-detail">${a.game_type.replace('_', ' ')} • ${formatMON(a.prize_pool)} MON</div>
-            </div>
-            <span class="badge badge-${a.status === 'open' ? 'open' : a.status === 'in_progress' ? 'progress' : 'completed'}">${a.status}</span>
-          </div>
-        `).join('') || '<div class="empty-state"><div class="empty-icon">🏟️</div>No arenas yet</div>';
-
-        if (currentArenaId) loadTournament();
-      } catch (e) { console.error(e); }
+      const data = await fetchData('/api/arenas');
+      if (data && data.arenas) {
+        state.arenas = data.arenas;
+        renderArenas();
+      }
     }
 
-    function selectArena(id) {
-      currentArenaId = id;
-      loadArenas();
-      loadTournament();
+    async function loadWorlds() {
+      const data = await fetchData('/api/worlds');
+      if (data && data.worlds) {
+        state.worlds = data.worlds;
+        renderWorlds();
+      }
     }
 
-    async function loadTournament() {
-      if (!currentArenaId) {
-        document.getElementById('participants-area').innerHTML = '<div class="empty-state">Select an arena</div>';
-        document.getElementById('matches-bracket').innerHTML = '<div class="empty-state">No matches yet</div>';
-        document.getElementById('tournament-info').textContent = '';
+    async function loadFactions() {
+      const data = await fetchData('/api/factions');
+      if (data && data.factions) {
+        state.factions = data.factions;
+        renderFactions();
+      }
+    }
+
+    function populateAgentSelects() {
+      const selects = ['agent-select-arena', 'agent-select-world', 'agent-select-faction', 'persuader-select', 'target-select', 'fund-agent-select'];
+      selects.forEach(id => {
+        const select = document.getElementById(id);
+        if (select) {
+          select.innerHTML = state.agents.map(a => 
+            `<option value="${a.id}">${a.name}</option>`
+          ).join('');
+        }
+      });
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    // AGENTS MANAGEMENT
+    // ═══════════════════════════════════════════════════════════════
+    function renderAgentList() {
+      const list = document.getElementById('agent-list');
+      const totalAgents = document.getElementById('total-agents');
+      const totalBalance = document.getElementById('total-balance');
+      
+      if (totalAgents) totalAgents.textContent = state.agents.length;
+      
+      // Calculate total balance
+      let total = 0;
+      state.agents.forEach(a => {
+        total += parseFloat(a.balance_mon || a.balance || '0');
+      });
+      if (totalBalance) totalBalance.textContent = total.toFixed(4);
+      
+      if (!list) return;
+      
+      if (!state.agents.length) {
+        list.innerHTML = '<div class="empty-state"><div class="empty-state-icon">🤖</div><p>No agents yet. Create one!</p></div>';
         return;
       }
 
-      try {
-        const [arenaRes, partRes, matchRes] = await Promise.all([
-          fetch(`${API}/arenas/${currentArenaId}`),
-          fetch(`${API}/arenas/${currentArenaId}/participants`),
-          fetch(`${API}/arenas/${currentArenaId}/matches`)
-        ]);
-
-        const arena = (await arenaRes.json()).arena;
-        const participants = (await partRes.json()).participants || [];
-        const matches = (await matchRes.json()).matches || [];
-
-        document.getElementById('tournament-info').innerHTML = `
-          <strong>${arena.name}</strong> • ${arena.game_type.replace('_', ' ')} • 
-          Prize: <span style="color:#f5af19">${formatMON(arena.prize_pool)} MON</span> • 
-          Status: <span class="badge badge-${arena.status === 'open' ? 'open' : arena.status === 'in_progress' ? 'progress' : 'completed'}">${arena.status}</span>
-        `;
-
-        document.getElementById('total-matches').textContent = matches.length;
-
-        // Participants
-        document.getElementById('participants-area').innerHTML = participants.map(p => `
-          <div class="participant ${p.eliminated ? 'eliminated' : 'active'}">
-            <span>${p.eliminated ? '❌' : '✅'}</span>
-            <span>${p.agent?.name || 'Unknown'}</span>
+      list.innerHTML = state.agents.map((agent, i) => {
+        const avatar = AGENT_AVATARS[i % AGENT_AVATARS.length];
+        const balance = parseFloat(agent.balance_mon || agent.balance || '0').toFixed(4);
+        const faction = state.factions.find(f => f.id === agent.faction_id);
+        return `
+        <div class="list-item" style="flex-direction:column;align-items:stretch;gap:8px">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="font-size:1.5rem">${avatar}</span>
+              <div>
+                <div style="font-weight:600">${agent.name}</div>
+                <div style="font-size:0.75rem;color:#888">${agent.personality?.slice(0, 40) || 'No personality set'}...</div>
+              </div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:600;color:#4ade80">${balance} MON</div>
+              <div style="font-size:0.75rem;color:#888">${faction?.name || 'No faction'}</div>
+            </div>
           </div>
-        `).join('') || '<div class="empty-state">No participants</div>';
+          <div style="display:flex;gap:5px;font-size:0.7rem">
+            <a href="${EXPLORER_URL}/address/${agent.wallet_address}" target="_blank" class="tx-link" style="flex:1;text-align:center">
+              🔗 ${agent.wallet_address?.slice(0, 8)}...${agent.wallet_address?.slice(-6)}
+            </a>
+          </div>
+        </div>
+      `}).join('');
+    }
 
-        document.getElementById('start-btn').disabled = arena.status !== 'open' || participants.length < 2;
+    async function createNewAgent() {
+      const name = document.getElementById('new-agent-name').value.trim();
+      const personality = document.getElementById('new-agent-personality').value.trim();
+      const fundAmount = document.getElementById('new-agent-fund').value || '0.01';
 
-        // Matches bracket
-        const rounds = {};
-        matches.forEach(m => {
-          if (!rounds[m.round]) rounds[m.round] = [];
-          rounds[m.round].push(m);
-        });
+      if (!name) return alert('Enter agent name');
 
-        let bracketHtml = '';
-        Object.keys(rounds).sort((a, b) => a - b).forEach(round => {
-          bracketHtml += `<div class="round"><div class="round-title">Round ${round}</div>`;
-          rounds[round].forEach(m => {
-            const a1Win = m.winner_id === m.agent1_id;
-            const a2Win = m.winner_id === m.agent2_id;
-            bracketHtml += `
-              <div class="match">
-                <div class="match-player ${a1Win ? 'winner' : a2Win ? 'loser' : ''}">
-                  ${a1Win ? '🏆' : ''} ${m.agent1?.name || 'Agent 1'}
-                  <span class="match-move">${m.agent1_choice || ''}</span>
+      // Show loading
+      addActivity('🤖', `Creating agent "${name}"...`, 'Generating wallet', '');
+
+      const result = await postData('/api/agents', {
+        name,
+        personality: personality || `An AI agent named ${name}`,
+        fundAmountInMON: fundAmount
+      });
+
+      if (result && result.agent) {
+        addActivity('✅', `Agent "${name}" created!`, 
+          `Funded with ${fundAmount} MON`, 'success', result.fundTxHash || null);
+        document.getElementById('new-agent-name').value = '';
+        document.getElementById('new-agent-personality').value = '';
+        await loadAgents();
+      } else {
+        addActivity('❌', `Failed to create agent`, result?.error || 'Unknown error', 'warning');
+      }
+    }
+
+    async function fundExistingAgent() {
+      const agentId = document.getElementById('fund-agent-select').value;
+      const amount = document.getElementById('fund-amount').value || '0.01';
+
+      if (!agentId) return alert('Select an agent');
+
+      const agent = state.agents.find(a => a.id === agentId);
+      addActivity('💰', `Funding ${agent?.name || 'agent'}...`, `${amount} MON`, '');
+
+      const result = await postData(`/api/agents/${agentId}/fund`, { amountInMON: amount });
+
+      if (result && result.success) {
+        addActivity('✅', `Funded ${agent?.name}!`, 
+          `+${amount} MON`, 'success', result.txHash || null);
+        await loadAgents();
+      } else {
+        addActivity('❌', `Failed to fund agent`, result?.error || 'Unknown error', 'warning');
+      }
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    // GAMING ARENA - ROCK PAPER SCISSORS
+    // ═══════════════════════════════════════════════════════════════
+    const gameTypeIcons = {
+      'rock_paper_scissors': '✊',
+      'coin_flip': '🪙',
+      'number_guess': '🔢',
+      'strategy': '♟️'
+    };
+
+    function renderArenas() {
+      const list = document.getElementById('arena-list');
+      if (!state.arenas.length) {
+        list.innerHTML = '<div class="empty-state"><div class="empty-state-icon">🏟️</div><p>No arenas yet</p></div>';
+        return;
+      }
+
+      list.innerHTML = state.arenas.map(arena => {
+        const icon = gameTypeIcons[arena.game_type] || '🎮';
+        return `
+        <div class="list-item ${state.selectedArena?.id === arena.id ? 'selected' : ''}" 
+             onclick="selectArena('${arena.id}')">
+          <div>
+            <div style="font-weight:600">${icon} ${arena.name}</div>
+            <div style="font-size:0.8rem;color:#888">${arena.game_type.replace(/_/g, ' ')} • ${arena.entry_fee_mon || '0'} MON</div>
+          </div>
+          <span class="badge ${arena.status === 'open' ? 'badge-success' : arena.status === 'in_progress' ? 'badge-warning' : 'badge-info'}">
+            ${arena.status}
+          </span>
+        </div>
+      `}).join('');
+    }
+
+    async function selectArena(id) {
+      state.selectedArena = state.arenas.find(a => a.id === id);
+      renderArenas();
+      
+      // Load participants
+      const data = await fetchData(`/api/arenas/${id}/participants`);
+      if (data && data.participants) {
+        state.participants = data.participants;
+        renderParticipants();
+      }
+
+      // Load matches
+      const matchData = await fetchData(`/api/arenas/${id}/matches`);
+      if (matchData && matchData.matches) {
+        renderBracket(matchData.matches);
+        renderMatchHistory(matchData.matches);
+      }
+
+      document.getElementById('round-info').textContent = 
+        state.selectedArena ? `Arena: ${state.selectedArena.name}` : 'Select an arena';
+      
+      document.getElementById('start-btn').disabled = 
+        !state.selectedArena || state.participants.length < 2 || state.selectedArena.status !== 'open';
+    }
+
+    function renderParticipants() {
+      const list = document.getElementById('participants-list');
+      if (!state.participants.length) {
+        list.innerHTML = '<div style="color:#666;text-align:center;padding:20px">No participants yet</div>';
+        return;
+      }
+
+      list.innerHTML = state.participants.map((p, i) => {
+        const name = p.agent?.name || p.name || p.agent_name || 'Agent';
+        return `
+        <div style="display:flex;align-items:center;gap:10px;padding:10px;background:rgba(0,0,0,0.2);border-radius:8px;margin-bottom:6px">
+          <span style="font-size:1.5rem">${AGENT_AVATARS[i % AGENT_AVATARS.length]}</span>
+          <div style="flex:1">
+            <div style="font-weight:500">${name}</div>
+            <div style="font-size:0.75rem;color:#888">${p.eliminated ? '❌ Eliminated' : '✅ Active'}</div>
+          </div>
+        </div>
+      `}).join('');
+
+      document.getElementById('start-btn').disabled = 
+        !state.selectedArena || state.participants.length < 2 || state.selectedArena.status !== 'open';
+    }
+
+    function renderBracket(matches) {
+      const container = document.getElementById('bracket-visual');
+      if (!matches || !matches.length) {
+        container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">🏟️</div><p>No matches yet</p></div>';
+        return;
+      }
+
+      // Group by round
+      const rounds = {};
+      matches.forEach(m => {
+        if (!rounds[m.round]) rounds[m.round] = [];
+        rounds[m.round].push(m);
+      });
+
+      let html = '<div class="bracket-rounds">';
+      Object.keys(rounds).sort((a, b) => a - b).forEach(round => {
+        html += `
+          <div class="bracket-round">
+            <div class="bracket-round-title">Round ${round}</div>
+            ${rounds[round].map(m => {
+              const p1Name = m.agent1?.name || m.agent1_name || 'TBD';
+              const p2Name = m.agent2?.name || m.agent2_name || 'TBD';
+              return `
+              <div class="bracket-match ${m.winner_id ? 'completed' : 'active'}">
+                <div class="bracket-player ${m.winner_id === m.agent1_id ? 'winner' : m.winner_id ? 'loser' : ''}">
+                  ${p1Name}
+                  <span class="bracket-player-move">${m.agent1_choice ? MOVE_ICONS[m.agent1_choice] || m.agent1_choice : ''}</span>
                 </div>
-                <div class="match-vs">VS</div>
-                <div class="match-player ${a2Win ? 'winner' : a1Win ? 'loser' : ''}">
-                  <span class="match-move">${m.agent2_choice || ''}</span>
-                  ${m.agent2?.name || 'Agent 2'} ${a2Win ? '🏆' : ''}
+                <div class="bracket-player ${m.winner_id === m.agent2_id ? 'winner' : m.winner_id ? 'loser' : ''}">
+                  ${p2Name}
+                  <span class="bracket-player-move">${m.agent2_choice ? MOVE_ICONS[m.agent2_choice] || m.agent2_choice : ''}</span>
                 </div>
               </div>
-            `;
-          });
-          bracketHtml += '</div>';
-        });
+            `}).join('')}
+          </div>
+        `;
+      });
+      html += '</div>';
+      container.innerHTML = html;
+    }
 
-        document.getElementById('matches-bracket').innerHTML = bracketHtml || '<div class="empty-state">No matches played yet</div>';
+    function renderMatchHistory(matches) {
+      const container = document.getElementById('match-history');
+      if (!matches || !matches.length) {
+        container.innerHTML = '<div style="color:#666;text-align:center;padding:20px">No matches yet</div>';
+        return;
+      }
 
-        // Winner
-        const winnerEl = document.getElementById('winner-display');
-        if (arena.status === 'completed' && arena.winner_agent_id) {
-          const winner = participants.find(p => p.agent_id === arena.winner_agent_id)?.agent;
-          winnerEl.innerHTML = `
-            <div class="winner-trophy">🏆</div>
-            <div class="winner-name">${winner?.name || 'Champion'}</div>
-            <div class="winner-prize">Won ${formatMON(arena.prize_pool)} MON</div>
-          `;
-          winnerEl.style.display = 'block';
-        } else {
-          winnerEl.style.display = 'none';
-        }
-      } catch (e) { console.error(e); }
+      // Game type icons for match history
+      const gameTypeIcon = {
+        rock_paper_scissors: '✊',
+        coin_flip: '🪙',
+        number_guess: '🎲',
+        strategy: '⚔️'
+      };
+
+      const gameType = state.selectedArena?.game_type || 'rock_paper_scissors';
+      const icon = gameTypeIcon[gameType] || '⚔️';
+
+      container.innerHTML = matches.filter(m => m.winner_id).map(m => {
+        const p1Name = m.agent1?.name || m.agent1_name || 'Agent';
+        const p2Name = m.agent2?.name || m.agent2_name || 'Agent';
+        const winnerName = m.winner_id === m.agent1_id ? p1Name : p2Name;
+        const p1Icon = MOVE_ICONS[m.agent1_choice] || m.agent1_choice || '?';
+        const p2Icon = MOVE_ICONS[m.agent2_choice] || m.agent2_choice || '?';
+        return `
+        <div class="activity-item success">
+          <div class="activity-icon">${icon}</div>
+          <div class="activity-content">
+            <div class="activity-title">${p1Name} vs ${p2Name}</div>
+            <div class="activity-detail">
+              ${p1Icon} vs ${p2Icon} → 
+              <strong style="color:#4ade80">${winnerName}</strong>
+            </div>
+          </div>
+        </div>
+      `}).join('');
     }
 
     async function createArena() {
-      const name = document.getElementById('arena-name').value || `Arena-${Date.now()}`;
-      const gameType = document.getElementById('game-type').value;
-      try {
-        const res = await fetch(`${API}/arenas`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, gameType, entryFeeInMON: '0.01' })
-        });
-        const data = await res.json();
-        log(`🏟️ Created arena: ${data.arena.name}`, 'success');
+      const name = document.getElementById('arena-name').value.trim();
+      const fee = document.getElementById('entry-fee').value || '0.005';
+      const gameType = document.getElementById('game-type-select').value;
+      if (!name) return alert('Enter arena name');
+
+      const gameTypeLabels = {
+        'rock_paper_scissors': '✊ RPS',
+        'coin_flip': '🪙 Coin Flip',
+        'number_guess': '🔢 Number Guess',
+        'strategy': '♟️ Strategy'
+      };
+
+      const result = await postData('/api/arenas', {
+        name,
+        gameType,
+        entryFeeInMON: fee,
+        maxParticipants: 8
+      });
+
+      if (result) {
+        const gameLabel = gameTypeLabels[gameType] || gameType;
+        addActivity('🏟️', `Arena "${name}" created`, `${gameLabel} | Entry: ${fee} MON`, 'success');
         document.getElementById('arena-name').value = '';
-        selectArena(data.arena.id);
         loadArenas();
-      } catch (e) { log(`❌ Failed: ${e.message}`, 'error'); }
+      }
     }
 
     async function joinTournament() {
-      if (!currentArenaId) return log('⚠️ Select an arena first', 'warning');
+      if (!state.selectedArena) return alert('Select an arena first');
       const agentId = document.getElementById('agent-select-arena').value;
-      if (!agentId) return log('⚠️ Select an agent', 'warning');
+      if (!agentId) return alert('Select an agent');
 
-      try {
-        const res = await fetch(`${API}/arenas/${currentArenaId}/join`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ agentId })
-        });
-        const data = await res.json();
-        if (data.participant) log(`✅ Agent joined tournament`, 'success');
-        else log(`⚠️ ${data.error}`, 'warning');
-        loadTournament();
-      } catch (e) { log(`❌ Failed: ${e.message}`, 'error'); }
+      const result = await postData(`/api/arenas/${state.selectedArena.id}/join`, {
+        agentId,
+        useRealMON: true
+      });
+
+      if (result) {
+        const agent = state.agents.find(a => a.id === agentId);
+        addActivity('🎮', `${agent?.name || 'Agent'} joined arena`, 
+          `Entry fee paid`, 'success', result.entry_tx_hash || null);
+        selectArena(state.selectedArena.id);
+      }
     }
 
     async function startTournament() {
-      if (!currentArenaId) return;
+      if (!state.selectedArena || state.participants.length < 2) return;
+      
       document.getElementById('start-btn').disabled = true;
-      log('🎮 Starting tournament...', 'info');
+      document.getElementById('start-btn').textContent = '⏳ Running...';
 
-      try {
-        const res = await fetch(`${API}/arenas/${currentArenaId}/start`, { method: 'POST' });
-        const data = await res.json();
-        if (data.winner) log(`🏆 Tournament complete! Winner: ${data.winner.name}`, 'success');
-        loadTournament();
-        loadAgents();
-        loadArenas();
-      } catch (e) { log(`❌ Failed: ${e.message}`, 'error'); }
+      // Animate the game
+      const result = await postData(`/api/arenas/${state.selectedArena.id}/start`, { useRealMON: true });
+
+      if (result) {
+        // Show match animations
+        if (result.matches) {
+          for (const match of result.matches) {
+            await animateMatch(match);
+            await sleep(1500);
+          }
+        }
+
+        // Show winner
+        if (result.winner) {
+          document.getElementById('game-display').style.display = 'none';
+          document.getElementById('champion-display').style.display = 'block';
+          document.getElementById('champion-name').textContent = result.winner.name;
+          document.getElementById('champion-prize').textContent = `Prize: ${result.prizePool || '?'} MON`;
+          document.getElementById('champion-tx').innerHTML = result.prizeTxHash 
+            ? `<a href="${EXPLORER_URL}/tx/${result.prizeTxHash}" target="_blank" class="tx-link">🔗 View Prize TX</a>` 
+            : '';
+
+          addActivity('🏆', `${result.winner.name} wins tournament!`, 
+            `Prize: ${result.prizePool || '?'} MON`, 'success', result.prizeTxHash || null);
+        }
+      }
+
+      document.getElementById('start-btn').textContent = '▶ Start Tournament';
+      loadArenas();
+      selectArena(state.selectedArena.id);
     }
 
-    // ==================== WORLDS ====================
-    async function loadWorlds() {
-      try {
-        const res = await fetch(`${API}/worlds`);
-        const data = await res.json();
-        worlds = data.worlds || [];
+    async function animateMatch(match) {
+      const p1Name = document.getElementById('player1-name');
+      const p2Name = document.getElementById('player2-name');
+      const p1Hand = document.getElementById('player1-hand');
+      const p2Hand = document.getElementById('player2-hand');
+      const p1Choice = document.getElementById('player1-choice');
+      const p2Choice = document.getElementById('player2-choice');
+      const result = document.getElementById('match-result');
+      const resultText = document.getElementById('result-text');
 
-        document.getElementById('world-count').textContent = worlds.length;
-        
-        let totalMembers = 0, totalFees = 0;
-        worlds.forEach(w => {
-          totalMembers += w.member_count || 0;
-          totalFees += parseFloat(formatMON(w.entry_fee));
-        });
-        document.getElementById('world-members').textContent = totalMembers;
-        document.getElementById('world-fees').textContent = totalFees.toFixed(2);
+      // Get names from agent objects
+      const player1Name = match.agent1?.name || match.agent1_name || 'Player 1';
+      const player2Name = match.agent2?.name || match.agent2_name || 'Player 2';
 
-        document.getElementById('worlds-list').innerHTML = worlds.map(w => `
-          <div class="item ${currentWorldId === w.id ? 'selected' : ''}" onclick="selectWorld('${w.id}')">
-            <div class="item-main">
-              <div class="item-name">🌍 ${w.name}</div>
-              <div class="item-detail">${w.member_count || 0} members • ${formatMON(w.entry_fee)} MON</div>
-            </div>
-          </div>
-        `).join('') || '<div class="empty-state">No worlds yet</div>';
+      // Determine game type from arena
+      const gameType = state.selectedArena?.game_type || 'rock_paper_scissors';
 
-        if (currentWorldId) loadWorldDetails();
-      } catch (e) { console.error(e); }
+      // Game-specific starting icons
+      const startIcons = {
+        rock_paper_scissors: '✊',
+        coin_flip: '🪙',
+        number_guess: '🎲',
+        strategy: '⚔️'
+      };
+
+      // Reset
+      p1Hand.className = 'rps-hand';
+      p2Hand.className = 'rps-hand';
+      result.style.display = 'none';
+
+      // Set names
+      p1Name.textContent = player1Name;
+      p2Name.textContent = player2Name;
+
+      // Shake animation with game-specific icon
+      const startIcon = startIcons[gameType] || '✊';
+      p1Hand.textContent = startIcon;
+      p2Hand.textContent = startIcon;
+      p1Hand.classList.add('shake');
+      p2Hand.classList.add('shake');
+      
+      // Game-specific choosing text
+      const choosingText = {
+        rock_paper_scissors: 'Choosing...',
+        coin_flip: 'Calling...',
+        number_guess: 'Picking...',
+        strategy: 'Planning...'
+      };
+      p1Choice.textContent = choosingText[gameType] || 'Choosing...';
+      p2Choice.textContent = choosingText[gameType] || 'Choosing...';
+
+      await sleep(500);
+
+      // Reveal choices
+      p1Hand.classList.remove('shake');
+      p2Hand.classList.remove('shake');
+      p1Hand.textContent = MOVE_ICONS[match.agent1_choice] || match.agent1_choice || '❓';
+      p2Hand.textContent = MOVE_ICONS[match.agent2_choice] || match.agent2_choice || '❓';
+      
+      // Format choice display
+      const formatChoice = (choice, type) => {
+        if (!choice) return '?';
+        if (type === 'coin_flip') return choice.charAt(0).toUpperCase() + choice.slice(1);
+        if (type === 'strategy') return choice.charAt(0).toUpperCase() + choice.slice(1);
+        return choice;
+      };
+      p1Choice.textContent = formatChoice(match.agent1_choice, gameType);
+      p2Choice.textContent = formatChoice(match.agent2_choice, gameType);
+
+      // Winner styling
+      const player1NameFinal = match.agent1?.name || match.agent1_name || 'Player 1';
+      const player2NameFinal = match.agent2?.name || match.agent2_name || 'Player 2';
+      if (match.winner_id === match.agent1_id) {
+        p1Hand.classList.add('winner');
+        p2Hand.classList.add('loser');
+        resultText.textContent = `${player1NameFinal} WINS!`;
+        resultText.className = 'rps-result-text win';
+      } else if (match.winner_id === match.agent2_id) {
+        p2Hand.classList.add('winner');
+        p1Hand.classList.add('loser');
+        resultText.textContent = `${player2NameFinal} WINS!`;
+        resultText.className = 'rps-result-text win';
+      } else {
+        resultText.textContent = 'DRAW!';
+        resultText.className = 'rps-result-text draw';
+      }
+
+      result.style.display = 'block';
     }
 
-    function selectWorld(id) {
-      currentWorldId = id;
-      loadWorlds();
-      loadWorldDetails();
-    }
-
-    async function loadWorldDetails() {
-      if (!currentWorldId) {
-        document.getElementById('world-display').innerHTML = `
-          <div class="empty-state">
-            <div class="empty-icon">🌍</div>
-            <p>Select a world to view</p>
-          </div>
-        `;
-        document.getElementById('world-members-list').innerHTML = '';
+    // ═══════════════════════════════════════════════════════════════
+    // VIRTUAL WORLDS
+    // ═══════════════════════════════════════════════════════════════
+    function renderWorlds() {
+      const list = document.getElementById('worlds-list');
+      if (!state.worlds.length) {
+        list.innerHTML = '<div class="empty-state"><div class="empty-state-icon">🌍</div><p>No worlds yet</p></div>';
         return;
       }
 
-      try {
-        const res = await fetch(`${API}/worlds/${currentWorldId}`);
-        const data = await res.json();
-        const world = data.world;
-        const members = data.members || [];
+      list.innerHTML = state.worlds.map(world => `
+        <div class="list-item ${state.selectedWorld?.id === world.id ? 'selected' : ''}"
+             onclick="selectWorld('${world.id}')">
+          <div>
+            <div style="font-weight:600">${world.name}</div>
+            <div style="font-size:0.8rem;color:#888">${world.entry_fee_mon || '0'} MON entry</div>
+          </div>
+          <span class="badge badge-success">${world.member_count || 0} members</span>
+        </div>
+      `).join('');
+    }
 
-        document.getElementById('world-display').innerHTML = `
-          <div class="world-name">🌍 ${world.name}</div>
-          <div class="world-desc">"${world.description}"</div>
-          <div class="world-stats">
-            <div class="stat-box">
-              <div class="stat-value">${members.length}</div>
-              <div class="stat-label">Members</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-value">${formatMON(world.entry_fee)}</div>
-              <div class="stat-label">Entry Fee (MON)</div>
-            </div>
+    async function selectWorld(id) {
+      state.selectedWorld = state.worlds.find(w => w.id === id);
+      renderWorlds();
+
+      if (state.selectedWorld) {
+        document.getElementById('current-world-name').textContent = '🌍 ' + state.selectedWorld.name;
+        document.getElementById('current-world-desc').textContent = state.selectedWorld.description || 'A virtual realm';
+        document.getElementById('world-entry-fee').textContent = state.selectedWorld.entry_fee_mon || '0';
+
+        // Load members
+        const memberData = await fetchData(`/api/worlds/${id}/members`);
+        if (memberData && memberData.members) {
+          renderWorldMembers(memberData.members);
+        }
+      }
+    }
+
+    function renderWorldMembers(members) {
+      const container = document.getElementById('world-agents');
+      document.getElementById('world-member-count').textContent = members.length;
+
+      if (!members.length) {
+        container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">🌐</div><p>No agents yet</p></div>';
+        return;
+      }
+
+      // Position agents in a circle
+      const radius = 100;
+      const centerX = 200;
+      const centerY = 120;
+
+      container.innerHTML = members.map((m, i) => {
+        const angle = (2 * Math.PI * i) / members.length - Math.PI/2;
+        const x = centerX + radius * Math.cos(angle) - 30;
+        const y = centerY + radius * Math.sin(angle) - 30;
+        const name = m.agent?.name || m.agent_name || m.name || 'Agent';
+        
+        return `
+          <div class="floating-agent" style="left:${x}px;top:${y}px">
+            <div class="floating-agent-avatar">${AGENT_AVATARS[i % AGENT_AVATARS.length]}</div>
+            <div class="floating-agent-name">${name}</div>
           </div>
         `;
-
-        document.getElementById('world-members-list').innerHTML = members.map(m => `
-          <div class="member">
-            <span class="member-avatar">🤖</span>
-            <div>
-              <div class="member-name">${m.agent?.name || 'Unknown'}</div>
-              <div class="member-wallet">${m.agent?.wallet_address?.slice(0, 16)}...</div>
-            </div>
-          </div>
-        `).join('') || '<div class="empty-state">No members yet</div>';
-      } catch (e) { console.error(e); }
+      }).join('');
     }
 
     async function createWorld() {
-      const name = document.getElementById('world-name').value || `World-${Date.now()}`;
-      const description = document.getElementById('world-desc').value || 'A virtual world';
-      const entryFee = document.getElementById('world-fee').value || '0.1';
+      const name = document.getElementById('world-name-input').value.trim();
+      const desc = document.getElementById('world-desc-input').value.trim();
+      const fee = document.getElementById('world-fee-input').value || '0';
       
-      try {
-        const res = await fetch(`${API}/worlds`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, description, entryFeeInMON: entryFee })
-        });
-        const data = await res.json();
-        log(`🌍 Created world: ${data.world.name}`, 'success');
-        document.getElementById('world-name').value = '';
-        document.getElementById('world-desc').value = '';
-        selectWorld(data.world.id);
+      if (!name) return alert('Enter world name');
+
+      const result = await postData('/api/worlds', {
+        name,
+        description: desc || 'A virtual realm',
+        entryFeeInMON: fee
+      });
+
+      if (result) {
+        addActivity('🌍', `World "${name}" created`, fee > 0 ? `Entry: ${fee} MON` : 'Free entry', 'success');
+        addWorldActivity('🌍', `World "${name}" was created!`, 'success');
+        document.getElementById('world-name-input').value = '';
+        document.getElementById('world-desc-input').value = '';
         loadWorlds();
-      } catch (e) { log(`❌ Failed: ${e.message}`, 'error'); }
+      }
     }
 
     async function joinWorld() {
-      if (!currentWorldId) return log('⚠️ Select a world first', 'warning');
+      if (!state.selectedWorld) return alert('Select a world first');
       const agentId = document.getElementById('agent-select-world').value;
-      if (!agentId) return log('⚠️ Select an agent', 'warning');
+      if (!agentId) return alert('Select an agent');
 
-      try {
-        const res = await fetch(`${API}/worlds/${currentWorldId}/join`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ agentId })
-        });
-        const data = await res.json();
-        log(`✅ Agent entered the world`, 'success');
-        loadWorldDetails();
-        loadWorlds();
-      } catch (e) { log(`❌ Failed: ${e.message}`, 'error'); }
+      const result = await postData(`/api/worlds/${state.selectedWorld.id}/join`, { agentId });
+
+      if (result) {
+        const agent = state.agents.find(a => a.id === agentId);
+        addActivity('🚶', `${agent?.name || 'Agent'} entered ${state.selectedWorld.name}`, 
+          'World entry', 'success', result.entry_tx_hash || null);
+        
+        // Update world activity feed
+        addWorldActivity('🚶', `${agent?.name || 'Agent'} entered the world`, 'success');
+        
+        selectWorld(state.selectedWorld.id);
+      }
     }
 
-    // ==================== FACTIONS ====================
-    async function loadFactions() {
-      try {
-        const res = await fetch(`${API}/factions`);
-        const data = await res.json();
-        factions = data.factions || [];
-
-        document.getElementById('faction-count').textContent = factions.length;
-
-        const icons = ['🏛️', '🎭', '⚖️', '🌑', '🤝', '🔥'];
-        document.getElementById('factions-grid').innerHTML = factions.map((f, i) => `
-          <div class="faction-card">
-            <div class="faction-header">
-              <span class="faction-icon">${icons[i % icons.length]}</span>
-              <div>
-                <div class="faction-name">${f.name}</div>
-                <div class="faction-philosophy">${f.philosophy?.slice(0, 50) || 'A philosophical faction'}...</div>
-              </div>
-            </div>
-            <div class="faction-members">👥 ${f.member_count || 0} members</div>
-          </div>
-        `).join('') || '<div class="empty-state">No factions</div>';
-
-        document.getElementById('faction-select').innerHTML = '<option value="">Select faction...</option>' +
-          factions.map(f => `<option value="${f.id}">${f.name}</option>`).join('');
-      } catch (e) { console.error(e); }
+    // World Activity Feed
+    const worldActivities = [];
+    function addWorldActivity(icon, text, type = '') {
+      worldActivities.unshift({ icon, text, type, time: new Date() });
+      if (worldActivities.length > 20) worldActivities.pop();
+      renderWorldActivity();
+      
+      // Update activity counter
+      const counter = document.getElementById('world-activity');
+      if (counter) counter.textContent = worldActivities.length;
     }
 
-    async function loadDebates() {
-      try {
-        const res = await fetch(`${API}/debates`);
-        const data = await res.json();
-        const debates = data.debates || [];
+    function renderWorldActivity() {
+      const container = document.getElementById('world-activity-feed');
+      if (!container) return;
+      
+      if (!worldActivities.length) {
+        container.innerHTML = '<div style="color:#666;text-align:center;padding:20px">🌍 No activity yet</div>';
+        return;
+      }
 
-        document.getElementById('debate-count').textContent = debates.length;
+      container.innerHTML = worldActivities.map(a => `
+        <div class="activity-item ${a.type}">
+          <div class="activity-icon">${a.icon}</div>
+          <div class="activity-content">
+            <div class="activity-title">${a.text}</div>
+            <div class="activity-detail">${new Date(a.time).toLocaleTimeString()}</div>
+          </div>
+        </div>
+      `).join('');
+    }
 
-        document.getElementById('debates-list').innerHTML = debates.slice(0, 5).map(d => `
-          <div class="debate-card">
-            <div class="debate-topic">"${d.topic}"</div>
-            <div class="debate-participants">
-              <span class="debater ${d.winner_id === d.agent1_id ? 'winner' : ''}">${d.agent1?.name || 'Agent 1'}</span>
-              <span class="debate-vs">VS</span>
-              <span class="debater ${d.winner_id === d.agent2_id ? 'winner' : ''}">${d.agent2?.name || 'Agent 2'}</span>
-              <span class="debate-stake">${formatMON(d.stake)} MON</span>
+    // ═══════════════════════════════════════════════════════════════
+    // FACTIONS & DEBATES
+    // ═══════════════════════════════════════════════════════════════
+    const FACTION_ICONS = {
+      'The Rationalists': '🧠',
+      'The Collectivists': '🤝',
+      'The Hedonists': '🎉',
+      'The Stoics': '🏛️',
+      'The Nihilists': '🌑',
+      'The Existentialists': '🎭'
+    };
+
+    function showFaction(factionId) {
+      const faction = state.factions.find(f => f.id === factionId);
+      if (faction) {
+        addActivity('🏛️', `Viewing ${faction.name}`, faction.philosophy?.slice(0, 50) + '...' || '', '');
+      }
+    }
+
+    function renderFactions() {
+      const grid = document.getElementById('factions-grid');
+      const select = document.getElementById('faction-select');
+
+      if (!state.factions.length) {
+        grid.innerHTML = '<div class="empty-state">No factions yet</div>';
+        return;
+      }
+
+      grid.innerHTML = state.factions.map(f => `
+        <div class="faction-card-large" onclick="showFaction('${f.id}')">
+          <div class="faction-icon-large">${FACTION_ICONS[f.name] || '⚔️'}</div>
+          <div class="faction-name-large">${f.name}</div>
+          <div class="faction-philosophy">${f.philosophy?.slice(0, 100) || 'Ancient wisdom'}...</div>
+          <div class="faction-stats">
+            <div class="faction-stat">
+              <div class="faction-stat-value">${f.member_count || 0}</div>
+              <div class="faction-stat-label">Members</div>
+            </div>
+            <div class="faction-stat">
+              <div class="faction-stat-value">${parseFloat(f.persuasion_bonus || 1).toFixed(1)}x</div>
+              <div class="faction-stat-label">Bonus</div>
             </div>
           </div>
-        `).join('') || '<div class="empty-state">No debates yet</div>';
-      } catch (e) { console.error(e); }
+        </div>
+      `).join('');
+
+      select.innerHTML = state.factions.map(f => 
+        `<option value="${f.id}">${f.name}</option>`
+      ).join('');
     }
 
     async function joinFaction() {
       const agentId = document.getElementById('agent-select-faction').value;
       const factionId = document.getElementById('faction-select').value;
-      if (!agentId || !factionId) return log('⚠️ Select agent and faction', 'warning');
+      
+      if (!agentId || !factionId) return alert('Select agent and faction');
 
-      try {
-        const res = await fetch(`${API}/factions/${factionId}/join`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ agentId })
-        });
-        const data = await res.json();
-        log(`⛪ Agent converted to faction`, 'success');
-        document.getElementById('conversion-count').textContent = 
-          parseInt(document.getElementById('conversion-count').textContent || 0) + 1;
+      const result = await postData(`/api/factions/${factionId}/join`, { agentId });
+
+      if (result) {
+        const agent = state.agents.find(a => a.id === agentId);
+        const faction = state.factions.find(f => f.id === factionId);
+        addActivity('⛪', `${agent?.name || 'Agent'} joined ${faction?.name || 'faction'}`, 'Conversion complete', 'success');
         loadFactions();
-      } catch (e) { log(`❌ Failed: ${e.message}`, 'error'); }
+      }
     }
 
     async function attemptPersuasion() {
       const persuaderId = document.getElementById('persuader-select').value;
       const targetId = document.getElementById('target-select').value;
-      if (!persuaderId || !targetId) return log('⚠️ Select persuader and target', 'warning');
+      const incentive = document.getElementById('incentive-amount').value || '0.005';
 
-      try {
-        const res = await fetch(`${API}/factions/persuade`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ persuaderId, targetId, incentiveInMON: '0.1' })
-        });
-        const data = await res.json();
-        
-        const list = document.getElementById('persuasion-list');
-        const persuader = agents.find(a => a.id === persuaderId);
-        const target = agents.find(a => a.id === targetId);
-        
-        list.innerHTML = `
-          <div class="persuasion-entry">
-            <div class="persuasion-agents">${persuader?.name} → ${target?.name}</div>
-            <div class="persuasion-result ${data.success ? 'success' : 'failed'}">
-              ${data.success ? '✅ Conversion successful!' : '❌ Persuasion failed'}
+      if (!persuaderId || !targetId) return alert('Select both agents');
+      if (persuaderId === targetId) return alert('Cannot persuade self');
+
+      const persuader = state.agents.find(a => a.id === persuaderId);
+      const target = state.agents.find(a => a.id === targetId);
+      const persuaderFaction = state.factions.find(f => f.id === persuader?.faction_id);
+      const targetFaction = state.factions.find(f => f.id === target?.faction_id);
+
+      // Update visual display
+      document.getElementById('persuader-name').textContent = persuader?.name || 'Persuader';
+      document.getElementById('target-name').textContent = target?.name || 'Target';
+      document.getElementById('persuasion-result').innerHTML = `
+        <div style="margin:10px 0;color:#888;font-size:0.9rem">
+          ${persuaderFaction ? `🏛️ ${persuaderFaction.name}` : '🤷 No faction'} 
+          → 
+          ${targetFaction ? `🏛️ ${targetFaction.name}` : '🤷 No faction'}
+        </div>
+        <div style="color:#fbbf24">⏳ Attempting persuasion with ${incentive} MON...</div>
+      `;
+
+      const result = await postData('/api/factions/persuade', {
+        persuaderAgentId: persuaderId,
+        targetAgentId: targetId,
+        incentiveInMON: incentive
+      });
+
+      if (result) {
+        if (result.success) {
+          document.getElementById('persuasion-result').innerHTML = `
+            <div class="persuasion-result success" style="margin-top:10px">
+              ✅ Persuasion Successful!
             </div>
-            <div style="font-size:0.8rem;color:#888;margin-top:5px;font-style:italic">"${data.argument?.slice(0, 100)}..."</div>
-          </div>
-        ` + list.innerHTML;
-
-        log(`💬 Persuasion ${data.success ? 'successful' : 'failed'}`, data.success ? 'success' : 'warning');
+            <div style="margin-top:8px;font-size:0.85rem;color:#4ade80">
+              ${target?.name} joined ${persuaderFaction?.name || 'the faction'}!
+            </div>
+            <div style="margin-top:5px;font-style:italic;color:#888;font-size:0.8rem">
+              "${result.argument?.slice(0, 100) || 'A compelling argument was made'}..."
+            </div>
+          `;
+          addActivity('🎯', `${persuader?.name} persuaded ${target?.name}`, 
+            `Converted to ${persuaderFaction?.name || 'faction'} | ${incentive} MON`, 'success');
+        } else {
+          document.getElementById('persuasion-result').innerHTML = `
+            <div class="persuasion-result failed" style="margin-top:10px">
+              ❌ Target Resisted!
+            </div>
+            <div style="margin-top:8px;font-size:0.85rem;color:#f87171">
+              ${target?.name} remains loyal to ${targetFaction?.name || 'their beliefs'}!
+            </div>
+            <div style="margin-top:5px;font-style:italic;color:#888;font-size:0.8rem">
+              "${result.argument?.slice(0, 100) || 'The argument was not convincing enough'}..."
+            </div>
+          `;
+          addActivity('🛡️', `${target?.name} resisted persuasion`, 
+            `${persuader?.name} failed | ${incentive} MON lost`, 'warning');
+        }
         loadFactions();
-      } catch (e) { log(`❌ Failed: ${e.message}`, 'error'); }
+        loadAgents();
+      }
     }
 
     async function createDebate() {
-      const topic = document.getElementById('debate-topic').value;
-      if (!topic) return log('⚠️ Enter a debate topic', 'warning');
-      if (agents.length < 2) return log('⚠️ Need at least 2 agents', 'warning');
+      const topic = document.getElementById('debate-topic-input').value.trim();
+      const stake = document.getElementById('debate-stake-input').value || '0.003';
+      
+      if (!topic) return alert('Enter a topic');
 
-      const a1 = agents[Math.floor(Math.random() * agents.length)];
-      let a2 = agents[Math.floor(Math.random() * agents.length)];
-      while (a2.id === a1.id) a2 = agents[Math.floor(Math.random() * agents.length)];
+      const agents = state.agents.slice(0, 2);
+      if (agents.length < 2) return alert('Need at least 2 agents');
 
-      try {
-        const res = await fetch(`${API}/debates`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ topic, agent1Id: a1.id, agent2Id: a2.id, stakeInMON: '0.1' })
-        });
-        const data = await res.json();
-        log(`🎭 Debate created: ${a1.name} vs ${a2.name}`, 'success');
-        document.getElementById('debate-topic').value = '';
-        loadDebates();
-      } catch (e) { log(`❌ Failed: ${e.message}`, 'error'); }
+      // Get faction info for each agent
+      const agent1Faction = state.factions.find(f => f.id === agents[0].faction_id);
+      const agent2Faction = state.factions.find(f => f.id === agents[1].faction_id);
+
+      // Show loading state
+      document.getElementById('debater1-speech').textContent = '🤔 Thinking...';
+      document.getElementById('debater2-speech').textContent = '🤔 Thinking...';
+      document.getElementById('debate-topic').textContent = topic;
+      document.getElementById('debater1-name').textContent = agents[0].name;
+      document.getElementById('debater2-name').textContent = agents[1].name;
+      document.getElementById('debater1-faction').textContent = agent1Faction?.name || 'Independent';
+      document.getElementById('debater2-faction').textContent = agent2Faction?.name || 'Independent';
+      document.getElementById('debate-stake').textContent = `💰 ${stake} MON`;
+
+      const result = await postData('/api/debates', {
+        agent1Id: agents[0].id,
+        agent2Id: agents[1].id,
+        topic,
+        stakeInMON: stake
+      });
+
+      if (result && result.debate) {
+        const debate = result.debate;
+        
+        // Display the AI-generated arguments
+        document.getElementById('debater1-speech').textContent = 
+          debate.agent1_argument || 'No argument generated';
+        document.getElementById('debater2-speech').textContent = 
+          debate.agent2_argument || 'No argument generated';
+        
+        // Show winner if determined
+        if (debate.winner_id) {
+          const winnerName = debate.winner_id === agents[0].id ? agents[0].name : agents[1].name;
+          const winnerFaction = debate.winner_id === agents[0].id ? agent1Faction : agent2Faction;
+          addActivity('🏆', `${winnerName} won the debate!`, 
+            `${winnerFaction?.name || 'Independent'} | Topic: "${topic.slice(0, 25)}..."`, 'success');
+        }
+
+        addActivity('💬', `Debate completed: "${topic.slice(0, 30)}..."`, 
+          `${agents[0].name} vs ${agents[1].name}`, 'success');
+        document.getElementById('debate-topic-input').value = '';
+      } else {
+        document.getElementById('debater1-speech').textContent = 'Debate failed to execute';
+        document.getElementById('debater2-speech').textContent = 'Please try again';
+      }
     }
 
-    // Initialize
+    // ═══════════════════════════════════════════════════════════════
+    // ACTIVITY FEED
+    // ═══════════════════════════════════════════════════════════════
+    const EXPLORER_URL = 'https://testnet.monadexplorer.com';
+
+    function addActivity(icon, title, detail, type = '', txHash = null) {
+      const activity = { icon, title, detail, type, time: new Date(), txHash };
+      state.activities.unshift(activity);
+      if (state.activities.length > 50) state.activities.pop();
+      
+      renderActivity();
+    }
+
+    function renderActivity() {
+      const container = document.getElementById('global-activity');
+      if (!container) return;
+
+      container.innerHTML = state.activities.map(a => {
+        let txLink = '';
+        if (a.txHash) {
+          txLink = `
+            <a href="${EXPLORER_URL}/tx/${a.txHash}" target="_blank" 
+               class="tx-link" title="View on Monad Explorer">
+              🔗 ${a.txHash.slice(0, 10)}...${a.txHash.slice(-6)}
+            </a>
+          `;
+        }
+        return `
+        <div class="activity-item ${a.type}">
+          <div class="activity-icon">${a.icon}</div>
+          <div class="activity-content">
+            <div class="activity-title">${a.title}</div>
+            <div class="activity-detail">${a.detail}</div>
+            ${txLink}
+            <div class="activity-time">${a.time.toLocaleTimeString()}</div>
+          </div>
+        </div>
+      `}).join('');
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    // UTILITIES
+    // ═══════════════════════════════════════════════════════════════
+    function sleep(ms) {
+      return new Promise(r => setTimeout(r, ms));
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    // INITIALIZE
+    // ═══════════════════════════════════════════════════════════════
     async function init() {
       await loadAgents();
       await loadArenas();
       await loadWorlds();
       await loadFactions();
-      await loadDebates();
+      
+      addActivity('🚀', 'The Agora initialized', 'Connected to Monad Testnet', 'success');
 
       // Auto-refresh
       setInterval(() => {
-        loadAgents();
         loadArenas();
         loadWorlds();
         loadFactions();
-        if (currentArenaId) loadTournament();
-        if (currentWorldId) loadWorldDetails();
-      }, 5000);
+      }, 10000);
     }
 
     init();
