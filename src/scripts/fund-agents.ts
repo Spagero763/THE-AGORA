@@ -7,7 +7,7 @@ import { initializeDatabase, getDatabase } from '../database/db.js';
 import { fundAgent, checkBalance } from '../blockchain/transactions.js';
 import { privateKeyToAccount } from 'viem/accounts';
 
-const AMOUNT_PER_AGENT = '0.05'; // MON to send each agent
+const AMOUNT_PER_AGENT = '0.0008'; // MON to send each agent
 
 async function fundAllAgents() {
   initializeDatabase();

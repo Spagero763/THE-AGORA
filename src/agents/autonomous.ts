@@ -350,10 +350,10 @@ export async function runAutonomousSimulation(
         console.log(`   Participants: ${count} | Prize Pool: ${formatEther(BigInt(arena.prize_pool))} MON`);
         console.log('─'.repeat(55));
         
-        const winner = await runFullTournament(arena.id, useRealMON);
+        const result = await runFullTournament(arena.id, useRealMON);
         
-        if (winner) {
-          console.log(`\n🎉 WINNER: ${winner.name} claims the prize!`);
+        if (result?.winner) {
+          console.log(`\n🎉 WINNER: ${result.winner.name} claims the prize!`);
         }
         console.log('─'.repeat(55));
       }

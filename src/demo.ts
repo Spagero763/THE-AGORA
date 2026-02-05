@@ -60,14 +60,14 @@ async function runDemo() {
 
   const agents: Array<{ agent: Agent; privateKey: string }> = [];
   const agentNames = [
-    'Aristotle-9000',
-    'Plato-X',
-    'Nietzsche-Bot',
-    'Socrates-AI',
-    'Kant-Prime',
-    'Marx-3000',
-    'Buddha-Net',
-    'Confucius-v2',
+    'PHANTOM',
+    'CIPHER',
+    'SPECTER',
+    'VORTEX',
+    'NEXUS',
+    'RAVEN',
+    'GHOST',
+    'ECHO',
   ];
 
   for (const name of agentNames) {

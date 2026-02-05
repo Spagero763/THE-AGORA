@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { privateKeyToAccount } from 'viem/accounts';
 import { createPublicClient, http, formatEther } from 'viem';
-import { getMonadChain } from '../config/network.js';
+import { getMonadChain, getNetworkConfig } from '../config/network.js';
 
 const privateKey = process.env.PRIVATE_KEY;
 
@@ -13,10 +13,11 @@ if (!privateKey) {
 const formattedKey = (privateKey.startsWith('0x') ? privateKey : `0x${privateKey}`) as `0x${string}`;
 const account = privateKeyToAccount(formattedKey);
 const chain = getMonadChain();
+const config = getNetworkConfig();
 
 const client = createPublicClient({
   chain,
-  transport: http('https://testnet-rpc.monad.xyz'),
+  transport: http(config.rpcUrl),
 });
 
 console.log('='.repeat(50));

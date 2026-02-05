@@ -99,7 +99,7 @@ ${COLORS.cyan}╔═════════════════════
   let agents = getAllAgents();
   
   if (agents.length < 4) {
-    const names = ['Kant-Prime', 'Marx-3000', 'Buddha-Net', 'Nietzsche-Bot'];
+    const names = ['PHANTOM', 'CIPHER', 'SPECTER', 'VORTEX'];
     for (const name of names) {
       if (!agents.find(a => a.name === name)) {
         const result = createAgent({ name, personality: getRandomPersonality() });
@@ -175,8 +175,8 @@ ${COLORS.cyan}╔═════════════════════
     try {
       const tournamentResult = await runFullTournament(arena.id, true); // useRealMON = true
       
-      if (tournamentResult) {
-        log(COLORS.green, `\n   🏆 WINNER: ${tournamentResult.name}`);
+      if (tournamentResult?.winner) {
+        log(COLORS.green, `\n   🏆 WINNER: ${tournamentResult.winner.name}`);
         log(COLORS.cyan, `   Winner received prize pool payout!`);
       }
     } catch (e: any) {

@@ -66,9 +66,10 @@ async function runRealTournament() {
   // Run tournament with REAL payouts
   console.log('🎮 Starting tournament with real MON payouts...\n');
   
-  const winner = await runFullTournament(arena.id, true); // useRealMON = true
+  const result = await runFullTournament(arena.id, true); // useRealMON = true
 
-  if (winner) {
+  if (result?.winner) {
+    const winner = result.winner;
     console.log(`\n🎉 WINNER: ${winner.name}`);
     console.log(`💸 Prize of ${prizePool} MON sent to ${winner.wallet_address.slice(0, 15)}...`);
     

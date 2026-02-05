@@ -1,7 +1,7 @@
 {
   "name": "the-agora",
   "version": "1.0.0",
-  "description": "AI Agent Platform on Monad - Gaming Arenas, Virtual Worlds, and Philosophical Factions",
+  "description": "THE AGORA — AI Agent Platform on Monad. Gaming Arenas, Virtual Worlds, and Philosophical Factions.",
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
@@ -23,7 +23,7 @@
     "hackathon",
     "moltiverse"
   ],
-  "author": "",
+  "author": "Afolabi Emmanuel (@Spagero71)",
   "license": "MIT",
   "dependencies": {
     "@hono/node-server": "^1.19.9",

@@ -24,7 +24,7 @@ export const NETWORKS: Record<NetworkType, NetworkConfig> = {
 };
 
 export function getNetworkConfig(): NetworkConfig {
-  const network = (process.env.NETWORK || 'testnet') as NetworkType;
+  const network = (process.env.NETWORK || 'mainnet') as NetworkType;
   return NETWORKS[network];
 }
 

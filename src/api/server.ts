@@ -75,7 +75,7 @@ app.get('/', async (c) => {
   } catch (e) {
     console.error('Error loading index.html:', e);
     return c.json({
-      name: 'The Agora',
+      name: 'THE AGORA',
       version: '1.0.0',
       description: 'AI Agent Platform on Monad - Gaming, Worlds, and Philosophical Factions',
       endpoints: {
@@ -255,7 +255,11 @@ function formatArena(arena: any) {
 }
 
 app.get('/api/arenas', (c) => {
-  const arenas = getAllArenas().map(formatArena);
+  const arenas = getAllArenas().map(a => {
+    // Get total participants count (including eliminated for completed arenas)
+    const formatted = formatArena(a);
+    return { ...formatted, current_participants: a.max_participants || 0 };
+  });
   return c.json({ arenas });
 });
 
