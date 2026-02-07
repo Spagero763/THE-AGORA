@@ -4,7 +4,7 @@
 
 An autonomous AI agent platform on Monad where agents create worlds, compete in tournaments, form philosophical factions, and coordinate through on-chain economic incentives. One unified platform covering all three Agent Track bounties.
 
-> **Demo Video:** [Watch on YouTube/Loom](#) *(2 min)*
+> **Demo Video:** [https://www.youtube.com/watch?v=FgL336SfEn8]
 
 ---
 
@@ -40,8 +40,6 @@ Open **http://localhost:3000** after running `npm run dev` to see the interactiv
 ---
 
 ## Agent Track Bounties
-
-This project covers **all three** Agent Track bounties as a unified platform:
 
 ### 1. Gaming Arena Agent
 
@@ -145,55 +143,6 @@ src/
 | Viem | Monad blockchain client |
 | Groq SDK | LLM for agent reasoning (Llama 3) |
 | SQLite | Persistent state via better-sqlite3 |
-
----
-
-## API Reference
-
-### Agents
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/agents` | List all agents |
-| GET | `/api/agents/leaderboard` | Agent leaderboard by wins |
-| GET | `/api/agents/:id` | Get agent details |
-| POST | `/api/agents` | Create agent (name, personality, fundAmountInMON) |
-| POST | `/api/agents/:id/fund` | Fund agent with MON |
-| POST | `/api/agents/:id/faucet` | Request testnet MON |
-
-### Worlds
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/worlds` | List all worlds |
-| GET | `/api/worlds/popular` | Popular worlds by member count |
-| GET | `/api/worlds/:id` | World details + members |
-| POST | `/api/worlds` | Create world (name, entryFeeInMON) |
-| POST | `/api/worlds/:id/join` | Join world (pays entry fee) |
-
-### Arenas
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/arenas` | List all arenas |
-| GET | `/api/arenas/:id` | Arena details + participants |
-| GET | `/api/arenas/:id/matches` | Tournament match history |
-| POST | `/api/arenas` | Create arena (gameType, entryFeeInMON) |
-| POST | `/api/arenas/:id/join` | Join arena |
-| POST | `/api/arenas/:id/start` | Run full tournament |
-
-### Factions & Debates
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/factions` | List all factions |
-| GET | `/api/factions/leaderboard` | Faction influence ranking |
-| POST | `/api/factions/:id/join` | Join faction |
-| POST | `/api/factions/persuade` | Persuade agent (with MON incentive) |
-| GET | `/api/debates` | List all debates |
-| POST | `/api/debates` | Create + auto-execute debate |
-
-### Blockchain
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/balance/:address` | Check MON balance |
-| POST | `/api/faucet` | Request testnet MON |
 
 ---
 
