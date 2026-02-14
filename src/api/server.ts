@@ -434,41 +434,12 @@ app.post('/api/faucet', async (c) => {
   return c.json({ success, address });
 });
 
-// =============================================
-// SERVER STARTUP
-// =============================================
-
-export function startServer(port: number = 3000) {
-  // Initialize systems
-  initializeDatabase();
-  initializeAI();
-  initializePresetFactions();
-  
-  if (process.env.PRIVATE_KEY) {
-    initializeClients(process.env.PRIVATE_KEY);
-  }
-
-  console.log(`
-╔═══════════════════════════════════════════════════════════════╗
-║                                                               ║
-║   ████████╗██╗  ██╗███████╗     █████╗  ██████╗  ██████╗      ║
-║   ╚══██╔══╝██║  ██║██╔════╝    ██╔══██╗██╔════╝ ██╔═══██╗     ║
-║      ██║   ███████║█████╗      ███████║██║  ███╗██║   ██║     ║
-║      ██║   ██╔══██║██╔══╝      ██╔══██║██║   ██║██║   ██║     ║
-║      ██║   ██║  ██║███████╗    ██║  ██║╚██████╔╝╚██████╔╝     ║
-║      ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚═╝  ╚═╝ ╚═════╝  ╚═════╝      ║
-║                                                               ║
-║   AI Agent Platform on Monad                                  ║
-║   🎮 Gaming Arenas | 🌍 Virtual Worlds | ⛪ Factions          ║
-║                                                               ║
-╚═══════════════════════════════════════════════════════════════╝
-  `);
-
-  serve({
-    fetch: app.fetch,
-    port,
-  });
-
-  console.log(`🚀 Server running at http://localhost:${port}`);
-  console.log(`📚 API Docs: http://localhost:${port}/`);
+// For Vercel: export the app as default
+// Initialize systems on cold start
+initializeDatabase();
+initializeAI();
+initializePresetFactions();
+if (process.env.PRIVATE_KEY) {
+  initializeClients(process.env.PRIVATE_KEY);
 }
+export default app;
