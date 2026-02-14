@@ -1,0 +1,38 @@
+# Environment variables (CONTAINS PRIVATE KEYS - NEVER COMMIT!)
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Database (contains local state)
+*.db
+*.sqlite
+*.sqlite3
+data/*.db
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test coverage
+coverage/
+
+# Temporary files
+tmp/
+temp/
