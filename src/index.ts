@@ -1,10 +1,3 @@
-/**
- * THE AGORA - Main Entry Point
- * Start the API server
- */
+import app from './api/server.js';
+export default app;
 
-import 'dotenv/config';
-import { startServer } from './api/server.js';
-
-const port = parseInt(process.env.PORT || '3000');
-startServer(port);
