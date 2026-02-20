@@ -26,6 +26,15 @@ npm run wallet
 npm run demo
 ```
 
+
+## Local Development
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
 Open **http://localhost:3000** after running `npm run dev` to see the interactive dashboard.
 
 **What you'll see:**
